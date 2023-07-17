@@ -2908,7 +2908,6 @@ function loop() {
 // UI
 // —————————————————————————————————————————————————————————————————————————————
 
-
 // Activate settings groups
 function activateFill() {
 	let fillGroupSolid = document.querySelectorAll('[data-fillgroup="solid"]');
@@ -3132,6 +3131,7 @@ function toggleMenu(target) {
 
 let fullscreenTimeout;
 function fullscreenIn() {
+	
 	let content = document.querySelector('.content');
 	content.dataset.fullscreen = 1;
 	content.dataset.menu = 0;
@@ -3150,6 +3150,10 @@ function fullscreenIn() {
 	}, 3000)
 
 	// Close all menus
+	if (activeMenu != '') {
+		closeMenu(activeMenu);
+	}
+
 	let menus = document.querySelectorAll('.menu');
 	for (let menu of menus) {
 		menu.dataset.active = 0;

@@ -942,4 +942,7 @@ body {
 	.source-buttons .button {
 		width: var(--unit-x24);
 	}
+	.fullscreen-message {
+		font-size: calc(var(--fontsize) * 1.2);
+	}
 }
