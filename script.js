@@ -76,10 +76,10 @@ let settings = {
 	},
 	"movementscale-slider": {
 		"input": "slider",
-		"value": 300,
-		"default": 300,
+		"value": 500,
+		"default": 500,
 		"min": 5,
-		"max": 1000,
+		"max": 5000,
 		"format": "int",
 		"unit": "%",
 	},
@@ -2031,12 +2031,47 @@ for (let dropdown of dropdowns) {
 
 // List of all possible source files
 let sources = [
-	'grid.png',
-	'checkerboard.png',
-	'diagonal-stripes.png',
-	'alternating-dots.png',
-	'alternating-bars.png',
-	'square-in-square.png',
+	'patterns/grid.svg',
+	'patterns/checkerboard.svg',
+	'patterns/chevron.svg',
+	'patterns/barber.svg',
+	'patterns/polka-dots.svg',
+	'patterns/barcode.svg',
+	'patterns/arrows.svg',
+	'patterns/bowtie.svg',
+	'patterns/square-in-square.svg',
+	'patterns/infinite-coins.svg',
+	'patterns/obscured.svg',
+	'patterns/pixel-weaver.png',
+
+	'artworks/tapestry.png',
+	'artworks/mona.png',
+	'artworks/flowers.png',
+	'artworks/lovers.png',
+	'artworks/portrait.png',
+	'artworks/starry.png',
+	'artworks/boogie.png',
+	'artworks/movement.png',
+	'artworks/wedge.png',
+	'artworks/skull.png',
+	'artworks/tube.png',
+	'artworks/fish.png',
+	'artworks/lilies.png',
+	'artworks/sunday.png',
+	'artworks/saturn.png',
+
+	'textures/horizon.jpg',
+	'textures/logs.jpg',
+	'textures/tiles.jpg',
+	'textures/abstract.jpg',
+	'textures/mosaic.jpg',
+	'textures/bricks.jpg',
+	'textures/sand.jpg',
+	'textures/water.jpg',
+	'textures/leaf.jpg',
+	'textures/aurora.jpg',
+	'textures/grain.jpg',
+	'textures/fur.jpg',
 ];
 // Currently active sources
 let sourceOrder = {};
@@ -2478,11 +2513,11 @@ function setGridSource(cell, value) {
 	if (value != "_") {
 		let sourceID = sourceOrder[value-1];
 		let img = settings[sourceID+'-dropdown']['value'];
-		gridCellSrc.style.backgroundImage = `url("assets/images/${img}")`;
+		gridCellSrc.style.backgroundImage = `url("assets/sources/${img}")`;
 		if (Object.keys(uploadedImages).includes(img)) {
 			gridCellSrc.style.backgroundImage = `url("${uploadedImages[img]}")`;
 		} else {
-			gridCellSrc.style.backgroundImage = `url("assets/images/${img}")`;
+			gridCellSrc.style.backgroundImage = `url("assets/sources/${img}")`;
 		}
 	} else {
 		gridCellSrc.style.backgroundImage = `unset`;
@@ -2502,7 +2537,7 @@ function refreshGridSource(cell) {
 		if (Object.keys(uploadedImages).includes(img)) {
 			gridCellSrc.style.backgroundImage = `url("${uploadedImages[img]}")`;
 		} else {
-			gridCellSrc.style.backgroundImage = `url("assets/images/${img}")`;
+			gridCellSrc.style.backgroundImage = `url("assets/sources/${img}")`;
 		}
 	} else {
 		gridCellSrc.style.backgroundImage = `unset`;
@@ -3173,5 +3208,5 @@ function fullscreenOut() {
 // INITIALIZE
 // —————————————————————————————————————————————————————————————————————————————
 
-randomizeSources();
+addSource();
 applySettings();

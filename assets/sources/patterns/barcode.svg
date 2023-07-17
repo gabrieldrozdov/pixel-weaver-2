@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g id="c" data-name="Layer 1">
+    <g>
+      <rect x="0" width="200" height="200" opacity="0"/>
+      <g>
+        <rect y="10" width="200" height="10"/>
+        <rect y="30" width="200" height="20"/>
+        <rect y="60" width="200" height="10"/>
+        <rect y="80" width="200" height="20"/>
+        <rect y="110" width="200" height="10"/>
+        <rect y="130" width="200" height="20"/>
+        <rect y="160" width="200" height="10"/>
+        <rect y="180" width="200" height="20"/>
+      </g>
+    </g>
+  </g>
+</svg>

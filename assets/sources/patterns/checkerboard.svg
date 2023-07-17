@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g id="c" data-name="Layer 1">
+    <g>
+      <rect x="50" y="100" width="50" height="50" fill="none"/>
+      <rect x="100" y="50" width="50" height="50" fill="none"/>
+      <rect width="50" height="50"/>
+      <rect y="100" width="50" height="50"/>
+      <rect x="100" width="50" height="50"/>
+      <rect x="50" y="50" width="50" height="50"/>
+      <rect x="150" y="50" width="50" height="50"/>
+      <rect x="100" y="100" width="50" height="50"/>
+      <rect x="50" y="150" width="50" height="50"/>
+      <rect x="150" y="150" width="50" height="50"/>
+    </g>
+  </g>
+</svg>

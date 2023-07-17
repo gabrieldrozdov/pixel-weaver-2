@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g id="c" data-name="Layer 1">
+    <g>
+      <polygon points="200 0 170 0 0 170 0 200 30 200 200 30 200 0"/>
+      <polygon points="130 0 70 0 0 70 0 130 130 0"/>
+      <polygon points="0 30 30 0 0 0 0 30"/>
+      <polygon points="70 200 130 200 200 130 200 70 70 200"/>
+      <polygon points="200 170 170 200 200 200 200 170"/>
+    </g>
+  </g>
+</svg>

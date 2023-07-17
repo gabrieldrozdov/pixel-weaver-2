@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="b" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g id="c" data-name="Layer 1">
+    <g>
+      <polygon points="0 66.667 0 133.333 40 100 0 66.667"/>
+      <polygon points="40 66.667 40 133.333 80 100 40 66.667"/>
+      <polygon points="80 66.667 80 133.333 120 100 80 66.667"/>
+      <polygon points="120 66.667 120 133.333 160 100 120 66.667"/>
+      <polygon points="160 66.667 160 133.333 200 100 160 66.667"/>
+      <polygon points="0 133.333 0 200 40 166.667 0 133.333"/>
+      <polygon points="40 133.333 40 200 80 166.667 40 133.333"/>
+      <polygon points="80 133.333 80 200 120 166.667 80 133.333"/>
+      <polygon points="120 133.333 120 200 160 166.667 120 133.333"/>
+      <polygon points="160 133.333 160 200 200 166.667 160 133.333"/>
+      <polygon points="0 0 0 66.667 40 33.333 0 0"/>
+      <polygon points="40 0 40 66.667 80 33.333 40 0"/>
+      <polygon points="80 0 80 66.667 120 33.333 80 0"/>
+      <polygon points="120 0 120 66.667 160 33.333 120 0"/>
+      <polygon points="160 0 160 66.667 200 33.333 160 0"/>
+    </g>
+  </g>
+</svg>
