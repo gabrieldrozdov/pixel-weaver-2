@@ -2072,6 +2072,14 @@ let sources = [
 	'textures/aurora.jpg',
 	'textures/grain.jpg',
 	'textures/fur.jpg',
+
+	'gifs/checkerboard-neutral.gif',
+	'gifs/checkerboard-red.gif',
+	'gifs/checkerboard-blue.gif',
+	'gifs/checkerboard-purple.gif',
+	'gifs/checkerboard-yellow.gif',
+	'gifs/checkerboard-pink.gif',
+	'gifs/checkerboard-green.gif',
 ];
 // Currently active sources
 let sourceOrder = {};
