@@ -4,10 +4,24 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Pixel Weaver</title>
+
+	<meta name="author" content="Gabriel Drozdov">
+	<meta name="keywords" content="HTML, CSS, JavaScript, Generative Art, Creative Coding">
+	<meta name="description" content="Pixel Weaver is a generative art toy and tool that uses CSS transitions to create dynamic compositions.">
+	<meta property="og:url" content="https://pixelweaver2.noreplica.com/">
+	<meta name="og:title" property="og:title" content="Pixel Weaver 2.0">
+	<meta property="og:description" content="Pixel Weaver is a generative art toy and tool that uses CSS transitions to create dynamic compositions.">
+	<meta property="og:image" content="assets/meta/opengraph.png">
+
+	<link rel="icon" type="png" href="assets/meta/favicon.png">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="container">
+
+		<div class="fullscreen" data-active="0">
+			<p class="fullscreen-message">!!&nbsp;Click anywhere to exit fullscreen mode&nbsp;!!</p>
+		</div>
 
 		<div class="content">	
 			<nav class="nav-container">
@@ -27,7 +41,7 @@
 							<svg viewBox="0 0 400 400"><polygon points="80 70 80 180 50 180 90 250 130 180 100 180 100 110 300 110 300 290 80 290 80 330 320 330 320 70 80 70"/></svg>
 						</div>
 					</div>
-					<div class="nav-button" id="nav-button-fullscreen">
+					<div class="nav-button" id="nav-button-fullscreen" onclick="fullscreenIn();">
 						<div class="nav-button-content">
 							<svg viewBox="0 0 400 400"><polygon points="315.607 105.607 340 130 340 60 270 60 294.394 84.393 200 178.787 105.606 84.393 130 60 60 60 60 130 84.393 105.607 178.787 200 84.393 294.393 60 270 60 340 130 340 105.606 315.607 200 221.213 294.394 315.607 270 340 340 340 340 270 315.607 294.393 221.213 200 315.607 105.607"/></svg>
 						</div>
@@ -68,10 +82,13 @@
 					Pixel Weaver 2.0 is a generative art toy and tool that exploits fundamental properties of the CSS programming language to create dynamic compositions.
 				</p>
 				<p class="menu-desc">
-					By changing a CSS property (like rotation) and setting a transition time, the CSS property automatically interpolates from one state to the next.
+					By changing a CSS property and setting a transition time, the CSS property automatically interpolates from one state to the next.
 				</p>
 				<p class="menu-desc">
-					Numerous CSS properties can be combined to create complex outcomes. In particular, this project focuses on CSS grid and background settings. The name “Pixel Weaver” comes from the pixelated aesthetic that emerges when you zoom in an image to an extreme degree.
+					Numerous CSS properties can be combined to create complex outcomes.
+				</p>
+				<p class="menu-desc">
+					A pixel is like a unit in a grid. Images are made up of pixels, and when you zoom into an image you start to lose the subject and just see its pixels. Weave those pixels into your own dynamic composition.
 				</p>
 				
 				<div class="menu-break"></div>
@@ -81,7 +98,7 @@
 					Pixel Weaver 2.0 was designed and developed by Gabriel Drozdov.
 				</p>
 				<p class="menu-desc">
-					Pixel Weaver 1.0 was originally designed and developed by Gabriel Drozdov at RISD as part of the Graduate Studio I course during the Fall 2022 semester with the guidance of Bethany Johns and Ramon Tejada.
+					Pixel Weaver 1.0 was designed and developed by Gabriel Drozdov at RISD as part of the Graduate Studio I course during the Fall 2022 semester with the guidance of Bethany Johns and Ramon Tejada.
 				</p>
 				
 				<div class="menu-break"></div>
@@ -89,29 +106,6 @@
 				<h3 class="menu-desc menu-highlight">Colophon</h3>
 				<p class="menu-desc">
 					This website uses the font VT323 designed by Peter Hull.
-				</p>
-				
-				<div class="menu-break"></div>
-
-				<h3 class="menu-desc menu-highlight">Source File Credits</h3>
-				<p class="menu-desc">
-					Unless otherwise noted, all source files were created by Gabriel Drozdov.
-				</p>
-				<ul class="menu-desc menu-list">
-					<li>something.jpg by something somebody</li>
-					<li>something.jpg by something somebody</li>
-					<li>something.jpg by something somebody</li>
-					<li>something.jpg by something somebody</li>
-					<li>something.jpg by something somebody</li>
-					<li>something.jpg by something somebody</li>
-					<li>something.jpg by something somebody</li>
-				</ul>
-				
-				<div class="menu-break"></div>
-
-				<h3 class="menu-desc menu-highlight">Icons</h3>
-				<p class="menu-desc">
-					Interface icons sourced from iconmonstr.
 				</p>
 			</div>
 		</div>
@@ -122,1555 +116,1725 @@
 
 				<h3 class="menu-desc menu-highlight">Disclaimer</h3>
 				<p class="menu-desc">
-					This site does not feature built-in recording functionality. Instead, it is much easier to use your computer’s built-in recording features.
+					Pixel Weaver cannot recording your dynamic compositions directly.
 				</p>
-				<p class="menu-desc">
-					I tried to implement this functionality directly into Pixel Weaver, but it wasn’t worth it because the quality ends up worse.
+				<p class="menu-desc">					
+					Record your creation using one of the following shortcuts:
 				</p>
-				
-				<div class="menu-break"></div>
 
-				<h3 class="menu-desc menu-highlight">Apple Macbook/Mac Instructions</h3>
-				<p class="menu-desc">
-					Use this keyboard shortcut for taking screenshots or screen recordings:
-				</p>
-				<p class="menu-callout">
-					> Command + Shift + 5
-				</p>
-				
-				<div class="menu-break"></div>
+				<div class="callout">
+					<h3 class="callout-heading">MacOS</h3>
+					<div class="callout-content">
+						<p class="callout-label">Screenshot / Screen Recording</p>
+						<p class="callout-shortcut">Command + Shift + 5</p>
+					</div>
+				</div>
 
-				<h3 class="menu-desc menu-highlight">Microsoft Windows Instructions</h3>
-				<p class="menu-desc">
-					Use this keyboard shortcut to take a full-screen screenshot:
-				</p>
-				<p class="menu-callout">
-					> Windows Key + PrtScn
-				</p>
-				<p class="menu-desc">
-					Use this keyboard shortcut to take a full-screen recording:
-				</p>
-				<p class="menu-callout">
-					> Windows Key + Alt + R
-				</p>
-				<p class="menu-desc">
-					For more precision, use the built-in “Snipping” Windows application.
-				</p>
-				
-				<div class="menu-break"></div>
+				<div class="callout">
+					<h3 class="callout-heading">Windows</h3>
+					<div class="callout-content">
+						<p class="callout-label">Screenshot</p>
+						<p class="callout-shortcut">Windows Key + PrtScn</p>
+						<div class="callout-break"></div>
+						<p class="callout-label">Fullscreen Recording</p>
+						<p class="callout-shortcut">Windows Key + Alt + R</p>
+						<div class="callout-break"></div>
+						<p class="callout-label">For More Controls</p>
+						<p class="callout-shortcut">“Snipping” application</p>
+					</div>
+				</div>
 
-				<h3 class="menu-desc menu-highlight">iPhone/iPad Instructions</h3>
-				<p class="menu-desc">
-					For iPhones without a Home button, use the following shortcut to take a screenshot:
-				</p>
-				<p class="menu-callout">
-					> Volume Up + Power
-				</p>
-				<p class="menu-desc">
-					For iPhones with a Home button, use the following shortcut to take a screenshot:
-				</p>
-				<p class="menu-callout">
-					> Home + Power
-				</p>
-				<p class="menu-desc">
-					Newer iPhones can take screen recordings by adding a shortcut to your Control Center. To do this, go to Settings > Control Center and add the Screen Recording shortcut. You can then trigger a screen recording via the Control Center.
-				</p>
-				
-				<div class="menu-break"></div>
+				<div class="callout">
+					<h3 class="callout-heading">iOS</h3>
+					<div class="callout-content">
+						<p class="callout-label">Screenshot</p>
+						<p class="callout-shortcut">Volume Up + Power</p>
+						<div class="callout-break"></div>
+						<p class="callout-label">Screenshot (if no home button)</p>
+						<p class="callout-shortcut">Home + Power</p>
+						<div class="callout-break"></div>
+						<p class="callout-label">Screen Recording</p>
+						<p class="callout-shortcut">Shortcut in Control Center</p>
+					</div>
+				</div>
 
-				<h3 class="menu-desc menu-highlight">Android Instructions</h3>
-				<p class="menu-desc">
-					Android screenshot shortcuts vary phone-to-phone. Generally, this shortcut works the most often:
-				</p>
-				<p class="menu-callout">
-					> Volume Down + Power
-				</p>
-				<p class="menu-desc">
-					Newer Android phones can take screen recordings via a shortcut in the Device Controls pulldown menu.
-				</p>
+				<div class="callout">
+					<h3 class="callout-heading">Android</h3>
+					<div class="callout-content">
+						<p class="callout-label">Screenshot</p>
+						<p class="callout-shortcut">Volume Down + Power</p>
+						<div class="callout-break"></div>
+						<p class="callout-label">Screen Recording</p>
+						<p class="callout-shortcut">Shortcut in Device Controls</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<div class="menu" id="controls" data-active="0">
-			<div class="menu-content">
+			<div class="menu-controls">
 
-				<h2 class="menu-heading">Controls</h2>
+				<div class="menu-controls-main">
 
-				<div class="controls-section" data-group="manual" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('manual')">
-						<span>Instruction Manual</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					<div class="controls-settings">
-						<div class="controls-desc">
-							<h3 class="controls-desc-heading">How To</h3>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">—</div>
-								<p>Modify sliders to set properties</p>
-							</div>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">—</div>
-								<p>Toggle to alternate between static and dynamic motion</p>
-							</div>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">—</div>
-								<p>Click on setting value to manually enter exact value</p>
-							</div>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">—</div>
-								<p>Click setting label to reset value</p>
-							</div>
-						</div>
+					<h2 class="menu-heading">Controls</h2>
 
-						<div class="menu-break"></div>
-
-						<div class="controls-desc">
-							<h3 class="controls-desc-heading">Recommended Process</h3>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">1</div>
-								<p>Reset all settings</p>
+					<div class="controls-section" data-group="manual" data-active="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('manual')">
+							<span>Instruction Manual</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						<div class="controls-settings">
+							<div class="controls-desc">
+								<h3 class="controls-desc-heading">How To</h3>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">—</div>
+									<p>Modify sliders to set properties</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">—</div>
+									<p>Toggle to alternate between static and dynamic motion</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">—</div>
+									<p>Click on setting value to manually enter exact value</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">—</div>
+									<p>Click setting label to reset value</p>
+								</div>
 							</div>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">2</div>
-								<p>Customize source files</p>
-							</div>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">3</div>
-								<p>Define grid layout and assign source files to cells</p>
-							</div>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">4</div>
-								<p>Modify settings groups individually and observe outcomes</p>
-							</div>
-							<div class="controls-desc-line">
-								<div class="controls-desc-number">5</div>
-								<p>Record your composition (see “Record” menu for instructions)</p>
+	
+							<div class="menu-break"></div>
+	
+							<div class="controls-desc">
+								<h3 class="controls-desc-heading">Recommended Process</h3>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">1</div>
+									<p>Reset all settings</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">2</div>
+									<p>Select source files or upload your own images</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">3</div>
+									<p>Define grid layout and assign source files to cells</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">4</div>
+									<p>Modify settings groups individually and observe outcomes</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">5</div>
+									<p>Record your composition (see “Record” menu for instructions)</p>
+								</div>
+								<div class="controls-desc-line">
+									<div class="controls-desc-number">6</div>
+									<p>Experiment with advanced settings</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="controls-section" data-group="sources" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('sources')">
-						<span>Source Files</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-
-					<div class="controls-settings">
-						<div class="controls-sources-container" data-empty="1">
-							<div class="sources-empty">
-								[empty]
-							</div>
-							<div class="controls-sources">
-							</div>
-						</div>
-
-						<div id="sourcebtn" class="buttons-row">
-							<div class="button" onclick="addSource();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="400 150 250 150 250 0 150 0 150 150 0 150 0 250 150 250 150 400 250 400 250 250 400 250 400 150"/></svg>
-									<span>Add New Source</span>
+	
+					<div class="controls-section" data-group="sources" data-active="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('sources')">
+							<span>Source Files</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+	
+						<div class="controls-settings">
+							<div class="controls-sources-container" data-empty="1">
+								<div class="sources-empty">
+									[empty]
 								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="addSource();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="400 150 250 150 250 0 150 0 150 150 0 150 0 250 150 250 150 400 250 400 250 250 400 250 400 150"/></svg>
-									<span>Upload a Source</span>
+								<div class="controls-sources">
 								</div>
-								<div class="button-fill"></div>
 							</div>
-						</div>
-
-						<div class="buttons-row">
-							<div class="button" onclick="clearSources();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Clear All Sources</span>
+	
+							<div id="sourcebtn" class="buttons-row">
+								<div class="button" onclick="addSource();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="400 150 250 150 250 0 150 0 150 150 0 150 0 250 150 250 150 400 250 400 250 250 400 250 400 150"/></svg>
+										<span>Add New Source</span>
+									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="button-fill"></div>
+								<div class="button" onclick="openDialog();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="400 150 250 150 250 0 150 0 150 150 0 150 0 250 150 250 150 400 250 400 250 250 400 250 400 150"/></svg>
+										<span>Upload a Source</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+								<input id="source-input" type="file" hidden onchange="handleFileSelect(event);">
 							</div>
-							<div class="button" onclick="randomizeSources();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Generate Random Sources</span>
+	
+							<div class="buttons-row">
+								<div class="button" onclick="clearSources();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Clear All Sources</span>
+									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="button-fill"></div>
+								<div class="button" onclick="randomizeSources();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Generate Random Sources</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="controls-section" data-group="grid" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('grid')">
-						<span>Grid</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-						<div class="controls-setting" data-setting="gridrows">
-							<h4 class="setting-label">Rows</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="gridrows-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="gridcolumns">
-							<h4 class="setting-label">Columns</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="gridcolumns-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="gridxshift">
-							<h4 class="setting-label">Horizontal Shift</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="gridxshift-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="gridyshift">
-							<h4 class="setting-label">Vertical Shift</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="gridyshift-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="setting-desc">
-							!! Click on a cell to change its assigned source file !!
-						</div>
-		
-						<div class="controls-grid-container">
-							<div class="controls-grid"></div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="clearGridSources();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Clear Grid</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="sameGridSources();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Set to Same Source</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeGridSources();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Shuffle Assignment</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetGrid();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeGrid();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-						</div>
-		
-					</div>
-				</div>
-
-				<div class="controls-section" data-group="movement" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('movement')">
-						<span>Source Manipulation</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">		
-						<div class="controls-setting" data-setting="movementxposition">
-							<h4 class="setting-label">X Position</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="movementxposition-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="movementxposition-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="movementyposition">
-							<h4 class="setting-label">Y Position</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="movementyposition-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="movementyposition-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="movementscale">
-							<h4 class="setting-label">Scale</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="movementscale-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="movementscale-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetMovement()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeMovement()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="controls-section" data-group="motion" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('motion')">
-						<span>Motion</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-						<div class="controls-setting" data-setting="interval">
-							<h4 class="setting-label">Interval</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="interval-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="interval-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="timingfunction">
-							<h4 class="setting-label">Timing Function</h4>
-							<div class="setting-options">
-								<div class="dropdown" data-setting="timingfunction-dropdown" data-state="closed">
-									<div class="dropdown-display">
-										<h5></h5>
-										<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-									</div>
-									<ul class="dropdown-menu">
-									</ul>
-								</div>
-							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetMotion()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeMotion()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="controls-section" data-group="fill" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('fill')">
-						<span>Fill</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-						<div class="controls-setting" data-setting="filltype">
-							<h4 class="setting-label">Type</h4>
-							<div class="setting-options">
-								<div class="dropdown" data-setting="filltype-dropdown" data-state="closed">
-									<div class="dropdown-display">
-										<h5></h5>
-										<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-									</div>
-									<ul class="dropdown-menu">
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillhue" data-fillgroup="solid" data-hide="1">
-							<h4 class="setting-label">Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillhue-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillsaturation" data-fillgroup="solid" data-hide="1">
-							<h4 class="setting-label">Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillsaturation-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="filllightness" data-fillgroup="solid" data-hide="1">
-							<h4 class="setting-label">Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filllightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="filllightness-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillalpha" data-fillgroup="solid" data-hide="1">
-							<h4 class="setting-label">Alpha</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillalpha-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillalpha-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillangle" data-fillgroup="angle" data-hide="1">
-							<h4 class="setting-label">Angle</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillangle-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillangle-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillstarthue" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillstarthue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillstarthue-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillstartsaturation" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillstartsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillstartsaturation-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillstartlightness" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillstartlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillstartlightness-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillstartalpha" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Alpha</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillstartalpha-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillstartalpha-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillstartposition" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Position</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillstartposition-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillstartposition-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillendhue" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillendhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillendhue-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillendsaturation" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillendsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillendsaturation-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillendlightness" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillendlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillendlightness-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillendalpha" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Alpha</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillendalpha-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillendalpha-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="fillendposition" data-fillgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Position</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="fillendposition-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="fillendposition-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetFill();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeFill();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				<div class="controls-section" data-group="border" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('border')">
-						<span>Border</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-						<div class="controls-setting" data-setting="borderstyle">
-							<h4 class="setting-label">Style</h4>
-							<div class="setting-options">
-								<div class="dropdown" data-setting="borderstyle-dropdown" data-state="closed">
-									<div class="dropdown-display">
-										<h5></h5>
-										<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-									</div>
-									<ul class="dropdown-menu">
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="borderwidth">
-							<h4 class="setting-label">Width</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="borderwidth-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="borderwidth-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="borderhue">
-							<h4 class="setting-label">Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="borderhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="borderhue-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="bordersaturation">
-							<h4 class="setting-label">Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="bordersaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="bordersaturation-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="borderlightness">
-							<h4 class="setting-label">Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="borderlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="borderlightness-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="borderalpha">
-							<h4 class="setting-label">Alpha</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="borderalpha-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="borderalpha-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="borderradius">
-							<h4 class="setting-label">Radius</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="borderradius-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="borderradius-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetBorder();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeBorder();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-						</div>
-		
-					</div>
-				</div>
-		
-				<div class="controls-section" data-group="transformations" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('transformations')">
-						<span>Transformations</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-						<div class="controls-setting" data-setting="rotatex">
-							<h4 class="setting-label">Rotate X</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="rotatex-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="rotatex-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="rotatey">
-							<h4 class="setting-label">Rotate Y</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="rotatey-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="rotatey-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
+	
+					<div class="controls-section" data-group="grid" data-active="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('grid')">
+							<span>Grid</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
 						
-						<div class="controls-setting" data-setting="rotatez">
-							<h4 class="setting-label">Rotate Z</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="rotatez-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+						<div class="controls-settings">
+							<div class="controls-setting" data-setting="gridrows">
+								<h4 class="setting-label">Rows</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="gridrows-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="rotatez-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="translatex">
-							<h4 class="setting-label">Translate X</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="translatex-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+			
+							<div class="controls-setting" data-setting="gridcolumns">
+								<h4 class="setting-label">Columns</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="gridcolumns-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="translatex-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="translatey">
-							<h4 class="setting-label">Translate Y</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="translatey-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+	
+							<div class="setting-desc">
+								!!&nbsp;Click on a cell to change its assigned source file&nbsp;!!
+							</div>
+			
+							<div class="controls-grid-container">
+								<div class="controls-grid"></div>
+							</div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="clearGridSources();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Clear Grid</span>
 									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="toggle" data-setting="translatey-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="scalex">
-							<h4 class="setting-label">Scale X</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="scalex-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+								<div class="button" onclick="sameGridSources();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Set to Same Source</span>
 									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="toggle" data-setting="scalex-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="scaley">
-							<h4 class="setting-label">Scale Y</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="scaley-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+								<div class="button" onclick="randomizeGridSources();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Shuffle Assignment</span>
 									</div>
-								</div>
-								<div class="toggle" data-setting="scaley-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
+									<div class="button-fill"></div>
 								</div>
 							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetTransformations()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetGrid();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
+									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeTransformations()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
+								<div class="button" onclick="randomizeGrid();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
+									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="button-fill"></div>
 							</div>
+			
 						</div>
 					</div>
-				</div>
-					
-				<div class="controls-section" data-group="background" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('background')">
-						<span>Background</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-						<div class="controls-setting" data-setting="backgroundtype">
-							<h4 class="setting-label">Type</h4>
-							<div class="setting-options">
-								<div class="dropdown" data-setting="backgroundtype-dropdown" data-state="closed">
-									<div class="dropdown-display">
-										<h5></h5>
-										<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-									</div>
-									<ul class="dropdown-menu">
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundhue" data-backgroundgroup="solid" data-hide="0">
-							<h4 class="setting-label">Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="backgroundhue-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundsaturation" data-backgroundgroup="solid" data-hide="0">
-							<h4 class="setting-label">Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="backgroundsaturation-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundlightness" data-backgroundgroup="solid" data-hide="0">
-							<h4 class="setting-label">Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="backgroundlightness-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundangle" data-backgroundgroup="angle" data-hide="1">
-							<h4 class="setting-label">Angle</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundangle-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundstarthue" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundstarthue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundstartsaturation" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundstartsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundstartlightness" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundstartlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundstartposition" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">Start Position</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundstartposition-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundendhue" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundendhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundendsaturation" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundendsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundendlightness" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundendlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="controls-setting" data-setting="backgroundendposition" data-backgroundgroup="gradient" data-hide="1">
-							<h4 class="setting-label">End Position</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="backgroundendposition-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetBackground();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeBackground();">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-		
-				<div class="controls-section" data-group="filters" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('filters')">
-						<span>Filters</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-
-						<div class="setting-desc">
-							!! These settings can cause excessive lag !!
-						</div>
-
-						<div class="controls-setting" data-setting="filterblur">
-							<h4 class="setting-label">Blur</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filterblur-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="filterblur-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="filterbrightness">
-							<h4 class="setting-label">Brightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filterbrightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="filterbrightness-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
+	
+					<div class="controls-section" data-group="motion" data-active="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('motion')">
+							<span>Motion</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
 						
-						<div class="controls-setting" data-setting="filtercontrast">
-							<h4 class="setting-label">Contrast</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filtercontrast-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+						<div class="controls-settings">
+							<div class="controls-setting" data-setting="gridxshift">
+								<h4 class="setting-label">Width Shift</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="gridxshift-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="filtercontrast-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="filtersaturate">
-							<h4 class="setting-label">Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filtersaturate-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+	
+							<div class="controls-setting" data-setting="gridyshift">
+								<h4 class="setting-label">Height Shift</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="gridyshift-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="filtersaturate-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="filterhuerotate">
-							<h4 class="setting-label">Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filterhuerotate-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+	
+							<div class="controls-setting" data-setting="movementxposition">
+								<h4 class="setting-label">Source X Position</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="movementxposition-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="movementxposition-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="filterhuerotate-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="filterinvert">
-							<h4 class="setting-label">Invert Colors</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filterinvert-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+	
+							<div class="controls-setting" data-setting="movementyposition">
+								<h4 class="setting-label">Source Y Position</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="movementyposition-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="movementyposition-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="filterinvert-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="filtersepia">
-							<h4 class="setting-label">Sepia Tone</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="filtersepia-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+	
+							<div class="controls-setting" data-setting="movementscale">
+								<h4 class="setting-label">Source Scale</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="movementscale-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="movementscale-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="filtersepia-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-
-
-
-						<div class="controls-setting" data-setting="shadowxoffset">
-							<h4 class="setting-label">Drop Shadow X Offset</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="shadowxoffset-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+	
+							<div class="controls-setting" data-setting="interval">
+								<h4 class="setting-label">Tempo</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="interval-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="interval-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
 									</div>
 								</div>
-								<div class="toggle" data-setting="shadowxoffset-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="shadowyoffset">
-							<h4 class="setting-label">Drop Shadow Y Offset</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="shadowyoffset-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+			
+							<div class="controls-setting" data-setting="timingfunction">
+								<h4 class="setting-label">Easing</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="timingfunction-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
 									</div>
 								</div>
-								<div class="toggle" data-setting="shadowyoffset-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="shadowblur">
-							<h4 class="setting-label">Drop Shadow Blur</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="shadowblur-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetMotion()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
 									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="toggle" data-setting="shadowblur-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="shadowhue">
-							<h4 class="setting-label">Drop Shadow Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="shadowhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+								<div class="button" onclick="randomizeMotion()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
 									</div>
+									<div class="button-fill"></div>
 								</div>
-								<div class="toggle" data-setting="shadowhue-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="shadowsaturation">
-							<h4 class="setting-label">Drop Shadow Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="shadowsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="shadowsaturation-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="shadowlightness">
-							<h4 class="setting-label">Drop Shadow Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="shadowlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="shadowlightness-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="shadowalpha">
-							<h4 class="setting-label">Drop Shadow Alpha</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="shadowalpha-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
-									</div>
-								</div>
-								<div class="toggle" data-setting="shadowalpha-toggle" data-state="false">
-									<p class="toggle-display"></p>
-									<div class="toggle-fill"></div>
-								</div>
-							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetFilters()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
-								</div>
-								<div class="button-fill"></div>
-							</div>
-							<div class="button" onclick="randomizeFilters()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
-								</div>
-								<div class="button-fill"></div>
 							</div>
 						</div>
 					</div>
-				</div>
-		
-				<div class="controls-section" data-group="ui" data-active="1">
-					<h3 class="controls-section-heading" onclick="toggleSettings('ui')">
-						<span>User Interface</span>
-						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
-					</h3>
-					
-					<div class="controls-settings">
-						<div class="controls-setting" data-setting="uicolorpalette">
-							<h4 class="setting-label">Color Palette</h4>
-							<div class="setting-options">
-								<div class="dropdown" data-setting="uicolorpalette-dropdown" data-state="closed">
-									<div class="dropdown-display">
-										<h5></h5>
-										<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+			
+					<div class="controls-section controls-section-advanced" data-group="transformations" data-active="1" data-hide="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('transformations')">
+							<span>Transformations</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						
+						<div class="controls-settings">
+							<div class="controls-setting" data-setting="rotatex">
+								<h4 class="setting-label">Rotate X</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="rotatex-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
-									<ul class="dropdown-menu">
-									</ul>
-								</div>
-							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="uiforegroundhue">
-							<h4 class="setting-label">Foreground Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="uiforegroundhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+									<div class="toggle" data-setting="rotatex-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
 									</div>
 								</div>
 							</div>
+			
+							<div class="controls-setting" data-setting="rotatey">
+								<h4 class="setting-label">Rotate Y</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="rotatey-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="rotatey-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="controls-setting" data-setting="rotatez">
+								<h4 class="setting-label">Rotate Z</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="rotatez-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="rotatez-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="translatex">
+								<h4 class="setting-label">Translate X</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="translatex-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="translatex-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="translatey">
+								<h4 class="setting-label">Translate Y</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="translatey-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="translatey-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="scalex">
+								<h4 class="setting-label">Scale X</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="scalex-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="scalex-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="scaley">
+								<h4 class="setting-label">Scale Y</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="scaley-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="scaley-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetTransformations()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+								<div class="button" onclick="randomizeTransformations()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+							</div>
 						</div>
-		
-						<div class="controls-setting" data-setting="uiforegroundsaturation">
-							<h4 class="setting-label">Foreground Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="uiforegroundsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+					</div>
+	
+					<div class="controls-section controls-section-advanced" data-group="fill" data-active="1" data-hide="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('fill')">
+							<span>Fill</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						
+						<div class="controls-settings">
+							<div class="setting-desc">
+								!!&nbsp;Only visible if using blend mode or transparent sources&nbsp;!!
+							</div>
+	
+							<div class="controls-setting" data-setting="blendmode">
+								<h4 class="setting-label">Source Blend Mode</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="blendmode-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="controls-setting" data-setting="filltype">
+								<h4 class="setting-label">Fill Type</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="filltype-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillhue" data-fillgroup="solid" data-hide="1">
+								<h4 class="setting-label">Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillhue-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillsaturation" data-fillgroup="solid" data-hide="1">
+								<h4 class="setting-label">Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillsaturation-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="filllightness" data-fillgroup="solid" data-hide="1">
+								<h4 class="setting-label">Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filllightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filllightness-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillalpha" data-fillgroup="solid" data-hide="1">
+								<h4 class="setting-label">Alpha</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillalpha-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillalpha-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillangle" data-fillgroup="angle" data-hide="1">
+								<h4 class="setting-label">Angle</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillangle-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillangle-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillstarthue" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillstarthue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillstarthue-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillstartsaturation" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillstartsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillstartsaturation-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillstartlightness" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillstartlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillstartlightness-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillstartalpha" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Alpha</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillstartalpha-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillstartalpha-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillstartposition" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Position</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillstartposition-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillstartposition-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillendhue" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillendhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillendhue-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillendsaturation" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillendsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillendsaturation-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillendlightness" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillendlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillendlightness-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillendalpha" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Alpha</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillendalpha-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillendalpha-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="fillendposition" data-fillgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Position</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="fillendposition-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="fillendposition-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetFill();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+								<div class="button" onclick="randomizeFill();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+						
+					<div class="controls-section controls-section-advanced" data-group="border" data-active="1" data-hide="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('border')">
+							<span>Border</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						
+						<div class="controls-settings">
+							<div class="controls-setting" data-setting="borderstyle">
+								<h4 class="setting-label">Style</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="borderstyle-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting setting-border" data-setting="borderwidth" data-hide="1">
+								<h4 class="setting-label">Width</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="borderwidth-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="borderwidth-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-border" data-setting="borderhue" data-hide="1">
+								<h4 class="setting-label">Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="borderhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="borderhue-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-border" data-setting="bordersaturation" data-hide="1">
+								<h4 class="setting-label">Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="bordersaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="bordersaturation-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-border" data-setting="borderlightness" data-hide="1">
+								<h4 class="setting-label">Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="borderlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="borderlightness-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-border" data-setting="borderalpha" data-hide="1">
+								<h4 class="setting-label">Alpha</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="borderalpha-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="borderalpha-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-border" data-setting="borderradius" data-hide="1">
+								<h4 class="setting-label">Radius</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="borderradius-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="borderradius-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetBorder();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+								<div class="button" onclick="randomizeBorder();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+							</div>
+			
+						</div>
+					</div>
+						
+					<div class="controls-section controls-section-advanced" data-group="background" data-active="1" data-hide="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('background')">
+							<span>Background</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						
+						<div class="controls-settings">
+							<div class="setting-desc">
+								!!&nbsp;Only visible if not obscured by cells&nbsp;!!
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundtype">
+								<h4 class="setting-label">Type</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="backgroundtype-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundhue" data-backgroundgroup="solid" data-hide="0">
+								<h4 class="setting-label">Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="backgroundhue-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundsaturation" data-backgroundgroup="solid" data-hide="0">
+								<h4 class="setting-label">Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="backgroundsaturation-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundlightness" data-backgroundgroup="solid" data-hide="0">
+								<h4 class="setting-label">Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="backgroundlightness-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundangle" data-backgroundgroup="angle" data-hide="1">
+								<h4 class="setting-label">Angle</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundangle-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundstarthue" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundstarthue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundstartsaturation" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundstartsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundstartlightness" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundstartlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundstartposition" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">Start Position</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundstartposition-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundendhue" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundendhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundendsaturation" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundendsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundendlightness" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundendlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="backgroundendposition" data-backgroundgroup="gradient" data-hide="1">
+								<h4 class="setting-label">End Position</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="backgroundendposition-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetBackground();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+								<div class="button" onclick="randomizeBackground();">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+			
+					<div class="controls-section controls-section-advanced" data-group="filters" data-active="1" data-hide="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('filters')">
+							<span>Filters</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						
+						<div class="controls-settings">
+	
+							<div class="setting-desc">
+								!!&nbsp;May cause excessive lag&nbsp;!!
+							</div>
+	
+							<div class="controls-setting" data-setting="filterblur">
+								<h4 class="setting-label">Blur</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filterblur-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filterblur-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+									<div class="toggle" data-setting="filterblur-toggle2" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="filterbrightness">
+								<h4 class="setting-label">Brightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filterbrightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filterbrightness-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+									<div class="toggle" data-setting="filterbrightness-toggle2" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="controls-setting" data-setting="filtercontrast">
+								<h4 class="setting-label">Contrast</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filtercontrast-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filtercontrast-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+									<div class="toggle" data-setting="filtercontrast-toggle2" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="filtersaturate">
+								<h4 class="setting-label">Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filtersaturate-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filtersaturate-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+									<div class="toggle" data-setting="filtersaturate-toggle2" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="filterhuerotate">
+								<h4 class="setting-label">Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filterhuerotate-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filterhuerotate-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+									<div class="toggle" data-setting="filterhuerotate-toggle2" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="filterinvert">
+								<h4 class="setting-label">Invert</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filterinvert-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filterinvert-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+									<div class="toggle" data-setting="filterinvert-toggle2" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="filtersepia">
+								<h4 class="setting-label">Sepia</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="filtersepia-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="filtersepia-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+									<div class="toggle" data-setting="filtersepia-toggle2" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting" data-setting="dropshadow">
+								<h4 class="setting-label">Drop Shadow</h4>
+								<div class="setting-options">
+									<div class="toggle toggle-full" data-setting="dropshadow-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="controls-setting setting-shadow" data-setting="shadowxoffset" data-hide="1">
+								<h4 class="setting-label">Drop Shadow X Offset</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="shadowxoffset-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="shadowxoffset-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-shadow" data-setting="shadowyoffset" data-hide="1">
+								<h4 class="setting-label">Drop Shadow Y Offset</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="shadowyoffset-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="shadowyoffset-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-shadow" data-setting="shadowblur" data-hide="1">
+								<h4 class="setting-label">Drop Shadow Blur</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="shadowblur-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="shadowblur-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-shadow" data-setting="shadowhue" data-hide="1">
+								<h4 class="setting-label">Drop Shadow Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="shadowhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="shadowhue-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-shadow" data-setting="shadowsaturation" data-hide="1">
+								<h4 class="setting-label">Drop Shadow Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="shadowsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="shadowsaturation-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-shadow" data-setting="shadowlightness" data-hide="1">
+								<h4 class="setting-label">Drop Shadow Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="shadowlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="shadowlightness-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting setting-shadow" data-setting="shadowalpha" data-hide="1">
+								<h4 class="setting-label">Drop Shadow Alpha</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="shadowalpha-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+									<div class="toggle" data-setting="shadowalpha-toggle" data-state="false">
+										<p class="toggle-display"></p>
+										<div class="toggle-fill"></div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetFilters()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+								<div class="button" onclick="randomizeFilters()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+			
+					<div class="controls-section controls-section-advanced" data-group="random" data-active="1" data-hide="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('random')">
+							<span>Randomization</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						
+						<div class="controls-settings">
+							<div class="setting-desc">
+								!!&nbsp;Select which settings to randomize&nbsp;!!
+							</div>
+			
+							<div class="controls-setting" data-setting="randomsources">
+								<h4 class="setting-label">Source Files</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randomsources-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="randomgrid">
+								<h4 class="setting-label">Grid</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randomgrid-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="randommotion">
+								<h4 class="setting-label">Motion</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randommotion-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="randomtransformations">
+								<h4 class="setting-label">Transformations</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randomtransformations-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="randomfill">
+								<h4 class="setting-label">Fill</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randomfill-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="randomborder">
+								<h4 class="setting-label">Border</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randomborder-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="randombackground">
+								<h4 class="setting-label">Background</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randombackground-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="controls-setting" data-setting="randomfilters">
+								<h4 class="setting-label">Filters</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="randomfilters-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
-		
-						<div class="controls-setting" data-setting="uiforegroundlightness">
-							<h4 class="setting-label">Foreground Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="uiforegroundlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+					</div>
+			
+					<div class="controls-section controls-section-advanced" data-group="ui" data-active="1" data-hide="1">
+						<h3 class="controls-section-heading" onclick="toggleSettings('ui')">
+							<span>User Interface</span>
+							<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+						</h3>
+						
+						<div class="controls-settings">
+							<div class="controls-setting" data-setting="uicolorpalette">
+								<h4 class="setting-label">Color Palette</h4>
+								<div class="setting-options">
+									<div class="dropdown" data-setting="uicolorpalette-dropdown" data-state="closed">
+										<div class="dropdown-display">
+											<h5></h5>
+											<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+										</div>
+										<ul class="dropdown-menu">
+										</ul>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="controls-setting" data-setting="uibackgroundhue">
-							<h4 class="setting-label">Background Hue</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="uibackgroundhue-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+			
+							<div class="controls-setting" data-setting="uiforegroundhue">
+								<h4 class="setting-label">Foreground Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="uiforegroundhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="uibackgroundsaturation">
-							<h4 class="setting-label">Background Saturation</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="uibackgroundsaturation-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+			
+							<div class="controls-setting" data-setting="uiforegroundsaturation">
+								<h4 class="setting-label">Foreground Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="uiforegroundsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="uibackgroundlightness">
-							<h4 class="setting-label">Background Lightness</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="uibackgroundlightness-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+			
+							<div class="controls-setting" data-setting="uiforegroundlightness">
+								<h4 class="setting-label">Foreground Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="uiforegroundlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-		
-						<div class="controls-setting" data-setting="uiscale">
-							<h4 class="setting-label">Scale</h4>
-							<div class="setting-options">
-								<div class="slider" data-setting="uiscale-slider">
-									<p class="slider-display"></p>
-									<div class="slider-area">
-										<div class="slider-fill"></div>
+							<div class="controls-setting" data-setting="uibackgroundhue">
+								<h4 class="setting-label">Background Hue</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="uibackgroundhue-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-		
-						<div class="buttons-row">
-							<div class="button" onclick="resetUI()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
-									<span>Reset Settings</span>
+			
+							<div class="controls-setting" data-setting="uibackgroundsaturation">
+								<h4 class="setting-label">Background Saturation</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="uibackgroundsaturation-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
 								</div>
-								<div class="button-fill"></div>
 							</div>
-							<div class="button" onclick="randomizeUI()">
-								<div class="button-display">
-									<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
-									<span>Randomize Settings</span>
+			
+							<div class="controls-setting" data-setting="uibackgroundlightness">
+								<h4 class="setting-label">Background Lightness</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="uibackgroundlightness-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
 								</div>
-								<div class="button-fill"></div>
+							</div>
+			
+							<div class="controls-setting" data-setting="uiscale">
+								<h4 class="setting-label">Scale</h4>
+								<div class="setting-options">
+									<div class="slider" data-setting="uiscale-slider">
+										<p class="slider-display"></p>
+										<div class="slider-area">
+											<div class="slider-fill"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="buttons-row">
+								<div class="button" onclick="resetUI()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+										<span>Reset Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
+								<div class="button" onclick="randomizeUI()">
+									<div class="button-display">
+										<svg viewBox="0 0 400 400"><polygon points="30.769 0 30.769 400 369.231 200 30.769 0"/></svg>
+										<span>Randomize Settings</span>
+									</div>
+									<div class="button-fill"></div>
+								</div>
 							</div>
 						</div>
+					</div>
+
+					<div class="controls-bottom">
+<pre>
+       ;   :   ;
+    .   \_,!,_/   ,
+     `.,'     `.,'
+      /         \
+ ~ -- :         : -- ~
+      \         /
+     ,'`._   _.'`.
+    '   / `!` \   `
+       ;   :   ; 
+</pre>
+<pre>
+      _          _          _        
+    >(')____,  >(')____,  >(')____,
+      (` =~~/    (` =~~/    (` =~~/
+~^~^~^``---'~^~^~^`---'~^~^~^`---'~^~^~^`
+</pre>				
 					</div>
 				</div>
 	
-				<div class="controls-sticky">
-					<h3 class="controls-sticky-heading">
+				<div class="menu-controls-sticky">
+					<h3 class="menu-sticky-heading">
 						All Settings Shortcuts
 					</h3>
 
@@ -1702,6 +1866,13 @@
 								<span>Randomize</span>
 							</div>
 							<div class="button-fill"></div>
+						</div>
+					</div>
+
+					<div class="buttons-row">
+						<div class="toggle sticky-toggle" data-setting="advanced-toggle" data-state="false">
+							<p class="toggle-display"></p>
+							<div class="toggle-fill"></div>
 						</div>
 					</div>
 				</div>

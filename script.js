@@ -20,6 +20,8 @@ let settings = {
 		"format": "int",
 		"unit": "",
 	},
+
+	// MOTION
 	"gridxshift-slider": {
 		"input": "slider",
 		"value": 50,
@@ -38,8 +40,6 @@ let settings = {
 		"format": "int",
 		"unit": "x",
 	},
-
-	// MOVEMENT
 	"movementxposition-slider": {
 		"input": "slider",
 		"value": 100,
@@ -48,6 +48,7 @@ let settings = {
 		"max": 500,
 		"format": "int",
 		"unit": "%",
+		"direction": true,
 	},
 	"movementxposition-toggle": {
 		"input": "toggle",
@@ -64,6 +65,7 @@ let settings = {
 		"max": 500,
 		"format": "int",
 		"unit": "%",
+		"direction": true,
 	},
 	"movementyposition-toggle": {
 		"input": "toggle",
@@ -88,9 +90,64 @@ let settings = {
 		"offtext": "static",
 		"ontext": "dynamic",
 	},
-
+	"interval-slider": {
+		"input": "slider",
+		"value": 1000,
+		"default": 1000,
+		"min": 100,
+		"max": 10000,
+		"format": "int",
+		"unit": "ms",
+	},
+	"interval-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"timingfunction-dropdown": {
+		"input": "dropdown",
+		"value": 'ease',
+		"default": 'ease',
+		"options": [
+			'linear',
+			'ease',
+			'ease-in',
+			'ease-out',
+			'ease-in-out',
+			'ease-in-quart',
+			'ease-out-quart',
+			'ease-in-out-quart',
+			'ease-in-back',
+			'ease-out-back',
+			'ease-in-out-back',
+		],
+	},
 
 	// FILL
+	"blendmode-dropdown": {
+		"input": "dropdown",
+		"value": 'normal',
+		"default": 'normal',
+		"options": [
+			'normal',
+			'multiply',
+			'screen',
+			'overlay',
+			'darken',
+			'lighten',
+			'color-dodge',
+			'color-burn',
+			'hard-light',
+			'soft-light',
+			'difference',
+			'exclusion',
+			'hue',
+			'saturation',
+			'luminosity',
+		],
+	},
 	"filltype-dropdown": {
 		"input": "dropdown",
 		"value": 'none',
@@ -346,9 +403,9 @@ let settings = {
 	// BORDER
 	"borderwidth-slider": {
 		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
+		"value": 1,
+		"default": 1,
+		"min": 1,
 		"max": 20,
 		"format": "int",
 		"unit": "px",
@@ -366,10 +423,10 @@ let settings = {
 		"default": 'none',
 		"options": [
 			'none',
-			'dotted',
-			'dashed',
 			'solid',
 			'double',
+			'dotted',
+			'dashed',
 			'groove',
 			'ridge',
 			'inset',
@@ -457,242 +514,16 @@ let settings = {
 		"ontext": "dynamic",
 	},
 
-	// FILTERS
-	"filterblur-slider": {
-		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
-		"max": 5,
-		"format": "int",
-		"unit": "px",
-	},
-	"filterblur-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"filterbrightness-slider": {
-		"input": "slider",
-		"value": 100,
-		"default": 100,
-		"min": 0,
-		"max": 200,
-		"format": "int",
-		"unit": "%",
-	},
-	"filterbrightness-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"filtercontrast-slider": {
-		"input": "slider",
-		"value": 100,
-		"default": 100,
-		"min": 0,
-		"max": 200,
-		"format": "int",
-		"unit": "%",
-	},
-	"filtercontrast-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"filtersaturate-slider": {
-		"input": "slider",
-		"value": 100,
-		"default": 100,
-		"min": 0,
-		"max": 200,
-		"format": "int",
-		"unit": "%",
-	},
-	"filtersaturate-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"filterhuerotate-slider": {
-		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
-		"max": 360,
-		"format": "int",
-		"unit": "deg",
-	},
-	"filterhuerotate-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"filterinvert-slider": {
-		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
-		"max": 100,
-		"format": "int",
-		"unit": "%",
-	},
-	"filterinvert-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"filtersepia-slider": {
-		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
-		"max": 100,
-		"format": "int",
-		"unit": "%",
-	},
-	"filtersepia-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-
-	"shadowxoffset-slider": {
-		"input": "slider",
-		"value": 5,
-		"default": 5,
-		"min": 0,
-		"max": 100,
-		"format": "int",
-		"unit": "px",
-	},
-	"shadowxoffset-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"shadowyoffset-slider": {
-		"input": "slider",
-		"value": 5,
-		"default": 5,
-		"min": 0,
-		"max": 100,
-		"format": "int",
-		"unit": "px",
-	},
-	"shadowyoffset-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"shadowblur-slider": {
-		"input": "slider",
-		"value": 2,
-		"default": 2,
-		"min": 0,
-		"max": 5,
-		"format": "int",
-		"unit": "px",
-	},
-	"shadowblur-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"shadowhue-slider": {
-		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
-		"max": 360,
-		"format": "int",
-		"unit": "deg",
-	},
-	"shadowhue-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"shadowsaturation-slider": {
-		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
-		"max": 100,
-		"format": "int",
-		"unit": "%",
-	},
-	"shadowsaturation-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"shadowlightness-slider": {
-		"input": "slider",
-		"value": 0,
-		"default": 0,
-		"min": 0,
-		"max": 100,
-		"format": "int",
-		"unit": "%",
-	},
-	"shadowlightness-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"shadowalpha-slider": {
-		"input": "slider",
-		"value": .5,
-		"default": .5,
-		"min": 0,
-		"max": 1,
-		"format": "float2",
-		"unit": "",
-	},
-	"shadowalpha-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-
 	// TRANSFORMATIONS
 	"rotatex-slider": {
 		"input": "slider",
 		"value": 0,
 		"default": 0,
-		"min": -45,
-		"max": 45,
+		"min": -180,
+		"max": 180,
 		"format": "int",
 		"unit": "deg",
+		"direction": true,
 	},
 	"rotatex-toggle": {
 		"input": "toggle",
@@ -705,10 +536,11 @@ let settings = {
 		"input": "slider",
 		"value": 0,
 		"default": 0,
-		"min": -45,
-		"max": 45,
+		"min": -180,
+		"max": 180,
 		"format": "int",
 		"unit": "deg",
+		"direction": true,
 	},
 	"rotatey-toggle": {
 		"input": "toggle",
@@ -721,10 +553,11 @@ let settings = {
 		"input": "slider",
 		"value": 0,
 		"default": 0,
-		"min": -45,
-		"max": 45,
+		"min": -180,
+		"max": 180,
 		"format": "int",
 		"unit": "deg",
+		"direction": true,
 	},
 	"rotatez-toggle": {
 		"input": "toggle",
@@ -737,10 +570,11 @@ let settings = {
 		"input": "slider",
 		"value": 0,
 		"default": 0,
-		"min": -25,
-		"max": 25,
+		"min": -100,
+		"max": 100,
 		"format": "int",
 		"unit": "%",
+		"direction": true,
 	},
 	"translatex-toggle": {
 		"input": "toggle",
@@ -753,10 +587,11 @@ let settings = {
 		"input": "slider",
 		"value": 0,
 		"default": 0,
-		"min": -25,
-		"max": 25,
+		"min": -100,
+		"max": 100,
 		"format": "int",
 		"unit": "%",
+		"direction": true,
 	},
 	"translatey-toggle": {
 		"input": "toggle",
@@ -769,8 +604,8 @@ let settings = {
 		"input": "slider",
 		"value": 100,
 		"default": 100,
-		"min": 50,
-		"max": 150,
+		"min": 25,
+		"max": 200,
 		"format": "int",
 		"unit": "%",
 	},
@@ -785,8 +620,8 @@ let settings = {
 		"input": "slider",
 		"value": 100,
 		"default": 100,
-		"min": 50,
-		"max": 150,
+		"min": 25,
+		"max": 200,
 		"format": "int",
 		"unit": "%",
 	},
@@ -796,42 +631,6 @@ let settings = {
 		"default": false,
 		"offtext": "static",
 		"ontext": "dynamic",
-	},
-
-	// MOTION
-	"interval-slider": {
-		"input": "slider",
-		"value": 1000,
-		"default": 1000,
-		"min": 100,
-		"max": 10000,
-		"format": "int",
-		"unit": "ms",
-	},
-	"interval-toggle": {
-		"input": "toggle",
-		"value": false,
-		"default": false,
-		"offtext": "static",
-		"ontext": "dynamic",
-	},
-	"timingfunction-dropdown": {
-		"input": "dropdown",
-		"value": 'ease',
-		"default": 'ease',
-		"options": [
-			'linear',
-			'ease',
-			'ease-in',
-			'ease-out',
-			'ease-in-out',
-			'ease-in-quart',
-			'ease-out-quart',
-			'ease-in-out-quart',
-			'ease-in-back',
-			'ease-out-back',
-			'ease-in-out-back',
-		],
 	},
 
 	// BACKGROUND
@@ -975,6 +774,362 @@ let settings = {
 		"unit": "%",
 	},
 
+	// FILTERS
+	"filterblur-slider": {
+		"input": "slider",
+		"value": 0,
+		"default": 0,
+		"min": 0,
+		"max": 20,
+		"format": "int",
+		"unit": "px",
+	},
+	"filterblur-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"filterblur-toggle2": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"filterbrightness-slider": {
+		"input": "slider",
+		"value": 100,
+		"default": 100,
+		"min": 0,
+		"max": 200,
+		"format": "int",
+		"unit": "%",
+	},
+	"filterbrightness-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"filterbrightness-toggle2": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"filtercontrast-slider": {
+		"input": "slider",
+		"value": 100,
+		"default": 100,
+		"min": 0,
+		"max": 200,
+		"format": "int",
+		"unit": "%",
+	},
+	"filtercontrast-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"filtercontrast-toggle2": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"filtersaturate-slider": {
+		"input": "slider",
+		"value": 100,
+		"default": 100,
+		"min": 0,
+		"max": 200,
+		"format": "int",
+		"unit": "%",
+	},
+	"filtersaturate-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"filtersaturate-toggle2": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"filterhuerotate-slider": {
+		"input": "slider",
+		"value": 0,
+		"default": 0,
+		"min": 0,
+		"max": 360,
+		"format": "int",
+		"unit": "deg",
+	},
+	"filterhuerotate-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"filterhuerotate-toggle2": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"filterinvert-slider": {
+		"input": "slider",
+		"value": 0,
+		"default": 0,
+		"min": 0,
+		"max": 100,
+		"format": "int",
+		"unit": "%",
+	},
+	"filterinvert-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"filterinvert-toggle2": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"filtersepia-slider": {
+		"input": "slider",
+		"value": 0,
+		"default": 0,
+		"min": 0,
+		"max": 100,
+		"format": "int",
+		"unit": "%",
+	},
+	"filtersepia-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"filtersepia-toggle2": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"dropshadow-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "off",
+		"ontext": "on",
+	},
+	"shadowxoffset-slider": {
+		"input": "slider",
+		"value": 5,
+		"default": 5,
+		"min": 0,
+		"max": 100,
+		"format": "int",
+		"unit": "px",
+	},
+	"shadowxoffset-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"shadowyoffset-slider": {
+		"input": "slider",
+		"value": 5,
+		"default": 5,
+		"min": 0,
+		"max": 100,
+		"format": "int",
+		"unit": "px",
+	},
+	"shadowyoffset-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"shadowblur-slider": {
+		"input": "slider",
+		"value": 2,
+		"default": 2,
+		"min": 0,
+		"max": 10,
+		"format": "int",
+		"unit": "px",
+	},
+	"shadowblur-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"shadowhue-slider": {
+		"input": "slider",
+		"value": 0,
+		"default": 0,
+		"min": 0,
+		"max": 360,
+		"format": "int",
+		"unit": "deg",
+	},
+	"shadowhue-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"shadowsaturation-slider": {
+		"input": "slider",
+		"value": 0,
+		"default": 0,
+		"min": 0,
+		"max": 100,
+		"format": "int",
+		"unit": "%",
+	},
+	"shadowsaturation-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"shadowlightness-slider": {
+		"input": "slider",
+		"value": 0,
+		"default": 0,
+		"min": 0,
+		"max": 100,
+		"format": "int",
+		"unit": "%",
+	},
+	"shadowlightness-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+	"shadowalpha-slider": {
+		"input": "slider",
+		"value": .5,
+		"default": .5,
+		"min": 0,
+		"max": 1,
+		"format": "float2",
+		"unit": "",
+	},
+	"shadowalpha-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "static",
+		"ontext": "dynamic",
+	},
+
+	// RANDOMIZATION
+	"randomsources-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+	"randomgrid-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+	"randommotion-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+	"randomtransformations-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'don’t randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+	"randomfill-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'don’t randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+	"randomborder-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'don’t randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+	"randombackground-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'don’t randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+	"randomfilters-dropdown": {
+		"input": "dropdown",
+		"value": 'randomize',
+		"default": 'don’t randomize',
+		"options": [
+			'randomize',
+			'don’t randomize',
+		],
+	},
+
 	// UI
 	"uicolorpalette-dropdown": {
 		"input": "dropdown",
@@ -1061,24 +1216,37 @@ let settings = {
 		"format": "float1",
 		"unit": "x",
 	},
+
+	// MISC
+	"advanced-toggle": {
+		"input": "toggle",
+		"value": false,
+		"default": false,
+		"offtext": "Show Advanced Settings",
+		"ontext": "Hide Advanced Settings",
+	},
 }
 
 // Settings sorted into groups
 let settingsGrid = [
 	'gridrows-slider',
 	'gridcolumns-slider',
+]
+let settingsMotion = [
 	'gridxshift-slider',
 	'gridyshift-slider',
-]
-let settingsMovement = [
 	'movementxposition-slider',
 	'movementxposition-toggle',
 	'movementyposition-slider',
 	'movementyposition-toggle',
 	'movementscale-slider',
 	'movementscale-toggle',
+	"interval-slider",
+	"interval-toggle",
+	"timingfunction-dropdown",
 ]
 let settingsFill = [
+	'blendmode-dropdown',
 	'filltype-dropdown',
 	'fillhue-slider',
 	'fillhue-toggle',
@@ -1126,6 +1294,40 @@ let settingsBorder = [
 	'borderradius-slider',
 	'borderradius-toggle',
 ]
+let settingsTransformations = [
+	"rotatex-slider",
+	"rotatex-toggle",
+	"rotatey-slider",
+	"rotatey-toggle",
+	"rotatez-slider",
+	"rotatez-toggle",
+	"translatex-slider",
+	"translatex-toggle",
+	"translatey-slider",
+	"translatey-toggle",
+	"scalex-slider",
+	"scalex-toggle",
+	"scaley-slider",
+	"scaley-toggle",
+]
+let settingsBackground = [
+	'backgroundtype-dropdown',
+	'backgroundhue-slider',
+	'backgroundhue-toggle',
+	'backgroundsaturation-slider',
+	'backgroundsaturation-toggle',
+	'backgroundlightness-slider',
+	'backgroundlightness-toggle',
+	'backgroundangle-slider',
+	'backgroundstarthue-slider',
+	'backgroundstartsaturation-slider',
+	'backgroundstartlightness-slider',
+	'backgroundstartposition-slider',
+	'backgroundendhue-slider',
+	'backgroundendsaturation-slider',
+	'backgroundendlightness-slider',
+	'backgroundendposition-slider',
+]
 let settingsFilters = [
 	'filterblur-slider',
 	'filterblur-toggle',
@@ -1156,44 +1358,15 @@ let settingsFilters = [
 	'shadowalpha-slider',
 	'shadowalpha-toggle',
 ]
-let settingsTransformations = [
-	"rotatex-slider",
-	"rotatex-toggle",
-	"rotatey-slider",
-	"rotatey-toggle",
-	"rotatez-slider",
-	"rotatez-toggle",
-	"translatex-slider",
-	"translatex-toggle",
-	"translatey-slider",
-	"translatey-toggle",
-	"scalex-slider",
-	"scalex-toggle",
-	"scaley-slider",
-	"scaley-toggle",
-]
-let settingsMotion = [
-	"interval-slider",
-	"interval-toggle",
-	"timingfunction-dropdown",
-]
-let settingsBackground = [
-	'backgroundtype-dropdown',
-	'backgroundhue-slider',
-	'backgroundhue-toggle',
-	'backgroundsaturation-slider',
-	'backgroundsaturation-toggle',
-	'backgroundlightness-slider',
-	'backgroundlightness-toggle',
-	'backgroundangle-slider',
-	'backgroundstarthue-slider',
-	'backgroundstartsaturation-slider',
-	'backgroundstartlightness-slider',
-	'backgroundstartposition-slider',
-	'backgroundendhue-slider',
-	'backgroundendsaturation-slider',
-	'backgroundendlightness-slider',
-	'backgroundendposition-slider',
+let settingsFiltersToggles = [
+	'filterblur-toggle2',
+	'filterbrightness-toggle2',
+	'filtercontrast-toggle2',
+	'filtersaturate-toggle2',
+	'filterhuerotate-toggle2',
+	'filterinvert-toggle2',
+	'filtersepia-toggle2',
+	'dropshadow-toggle',
 ]
 let settingsUI = [
 	'uicolorpalette-dropdown',
@@ -1228,14 +1401,6 @@ function resetGrid() {
 	groupSettingChange = false;
 	applySettings();
 }
-function resetMovement() {
-	groupSettingChange = true;
-	for (let setting of settingsMovement) {
-		resetSetting(setting);
-	}
-	groupSettingChange = false;
-	applySettings();
-}
 function resetFill() {
 	groupSettingChange = true;
 	for (let setting of settingsFill) {
@@ -1255,6 +1420,14 @@ function resetBorder() {
 function resetFilters() {
 	groupSettingChange = true;
 	for (let setting of settingsFilters) {
+		resetSetting(setting);
+	}
+	groupSettingChange = false;
+	applySettings();
+}
+function resetFiltersToggles() {
+	groupSettingChange = true;
+	for (let setting of settingsFiltersToggles) {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
@@ -1295,10 +1468,10 @@ function resetUI() {
 function resetAll() {
 	// clearSources();
 	resetGrid();
-	resetMovement();
 	resetFill();
 	resetBorder();
 	resetFilters();
+	resetFiltersToggles();
 	resetTransformations();
 	resetMotion();
 	resetBackground();
@@ -1339,14 +1512,6 @@ function randomizeGrid() {
 	}
 	generateGrid();
 	generateGridSources();
-	groupSettingChange = false;
-	applySettings();
-}
-function randomizeMovement() {
-	groupSettingChange = true;
-	for (let setting of settingsMovement) {
-		randomizeSetting(setting);
-	}
 	groupSettingChange = false;
 	applySettings();
 }
@@ -1406,16 +1571,41 @@ function randomizeUI() {
 	groupSettingChange = false;
 	applySettings();
 }
+let randomGroups = {
+	'sources': true,
+	'grid': true,
+	'motion': true,
+	"transformations": false,
+	"fill": false,
+	"border": false,
+	"background": false,
+	"filters": false
+};
 function randomizeAll() {
-	randomizeSources();
-	randomizeGrid();
-	randomizeMovement();
-	randomizeFill();
-	randomizeBorder();
-	// randomizeFilters();
-	randomizeTransformations();
-	randomizeMotion();
-	randomizeBackground();
+	if (randomGroups['sources'] == true) {
+		randomizeSources();
+	}
+	if (randomGroups['grid'] == true) {
+		randomizeGrid();
+	}
+	if (randomGroups['fill'] == true) {
+		randomizeFill();
+	}
+	if (randomGroups['border'] == true) {
+		randomizeBorder();
+	}
+	if (randomGroups['filters'] == true) {
+		randomizeFilters();
+	}
+	if (randomGroups['transformations'] == true) {
+		randomizeTransformations();
+	}
+	if (randomGroups['motion'] == true) {
+		randomizeMotion();
+	}
+	if (randomGroups['background'] == true) {
+		randomizeBackground();
+	}
 }
 
 // —————————————————————————————————————————————————————————————————————————————
@@ -1465,7 +1655,14 @@ function sliderActivate(e, target) {
 
 	function sliderDrag(e2) {
 		const rect = slider.getBoundingClientRect();
-		let percent = (e2.clientX - rect.left)/(rect.right - rect.left);
+
+		// Handle mobile and desktop movement
+		if (e2.touches != null) {
+			percent = (e2.touches[0].clientX - rect.left)/(rect.right - rect.left);
+		} else {
+			percent = (e2.clientX - rect.left)/(rect.right - rect.left);
+		}
+
 		if (percent > 1) {
 			percent = 1;
 		} else if (percent < 0) {
@@ -1590,6 +1787,17 @@ for (let slider of sliders) {
 // —————————————————————————————————————————————————————————————————————————————
 
 // Toggles paired with sliders
+let activeFilters = { // toggle filters on and off
+	'blur': false,
+	'brightness': false,
+	'contrast': false,
+	'saturation': false,
+	'hue': false,
+	'invert': false,
+	'sepia': false,
+	'shadow': false,
+}
+let advancedState = false // advanced settings visibility
 function toggleToggle(target) {
 	let toggle = document.querySelector(`.toggle[data-setting='${target}'`);
 	let toggleDisplay = toggle.querySelector(`.toggle-display`);
@@ -1603,8 +1811,44 @@ function toggleToggle(target) {
 		toggleDisplay.innerText = settings[target]["offtext"];
 	}
 
-	if (groupSettingChange == false) {
+	if (groupSettingChange == false && target != 'advanced-toggle') {
+		initialize = true;
 		applySettings();
+	}
+
+	// Advanced settings case
+	if (target == "advanced-toggle") {
+		advancedState = !advancedState;
+		let advancedGroups = document.querySelectorAll('.controls-section-advanced');
+		if (advancedState == true) {
+			for (let group of advancedGroups) {
+				group.dataset.hide = 0;
+			}
+		} else {
+			for (let group of advancedGroups) {
+				group.dataset.hide = 1;
+			}
+		}
+	}
+
+	// Filter cases
+	if (target == 'filterblur-toggle2') {
+		activeFilters['blur'] = settings[target]["value"];
+	} else if (target == 'filterbrightness-toggle2') {
+		activeFilters['brightness'] = settings[target]["value"];
+	} else if (target == 'filtercontrast-toggle2') {
+		activeFilters['contrast'] = settings[target]["value"];
+	} else if (target == 'filtersaturate-toggle2') {
+		activeFilters['saturation'] = settings[target]["value"];
+	} else if (target == 'filterhuerotate-toggle2') {
+		activeFilters['hue'] = settings[target]["value"];
+	} else if (target == 'filterinvert-toggle2') {
+		activeFilters['invert'] = settings[target]["value"];
+	} else if (target == 'filtersepia-toggle2') {
+		activeFilters['sepia'] = settings[target]["value"];
+	} else if (target == 'dropshadow-toggle') {
+		activeFilters['shadow'] = settings[target]["value"];
+		activateShadow();
 	}
 }
 
@@ -1613,7 +1857,7 @@ function toggleUpdate(target, value) {
 	settings[target]["value"] = value;
 	toggleRefresh(target);
 
-	if (groupSettingChange == false) {
+	if (groupSettingChange == false && target != 'advanced-toggle') {
 		restartLoop();
 	}
 }
@@ -1628,6 +1872,26 @@ function toggleRefresh(target) {
 	} else {
 		toggle.dataset.value = true;
 		toggleDisplay.innerText = settings[target]["ontext"];
+	}
+
+	// Filter cases
+	if (target == 'filterblur-toggle2') {
+		activeFilters['blur'] = settings[target]["value"];
+	} else if (target == 'filterbrightness-toggle2') {
+		activeFilters['brightness'] = settings[target]["value"];
+	} else if (target == 'filtercontrast-toggle2') {
+		activeFilters['contrast'] = settings[target]["value"];
+	} else if (target == 'filtersaturate-toggle2') {
+		activeFilters['saturation'] = settings[target]["value"];
+	} else if (target == 'filterhuerotate-toggle2') {
+		activeFilters['hue'] = settings[target]["value"];
+	} else if (target == 'filterinvert-toggle2') {
+		activeFilters['invert'] = settings[target]["value"];
+	} else if (target == 'filtersepia-toggle2') {
+		activeFilters['sepia'] = settings[target]["value"];
+	} else if (target == 'dropshadow-toggle') {
+		activeFilters['shadow'] = settings[target]["value"];
+		activateShadow();
 	}
 }
 
@@ -1644,6 +1908,8 @@ for (let toggle of toggles) {
 
 // Open, close, and toggle dropdown viewstate
 function dropdownToggle(target) {
+	window.removeEventListener('click', dropdownCloseActive);
+
 	// Close all other open dropdowns
 	let activeDropdown = document.querySelector('[data-state="open"]');
 	if (activeDropdown != null && activeDropdown.dataset.setting != target) {
@@ -1654,19 +1920,34 @@ function dropdownToggle(target) {
 	let dropdownMenu = dropdown.querySelector(`.dropdown-menu`);
 	dropdownMenu.scrollTop = 0;
 	if (dropdown.dataset.state == "open") {
-		dropdown.dataset.state = "closed";
+		dropdownClose(target);
 	} else {
-		dropdown.dataset.state = "open";
+		dropdownOpen(target);
 	}
 }
 function dropdownOpen(target) {
-	let dropdown = document.querySelector(`.dropdown[data-setting='${target}'`);
+	setTimeout(() => {
+		window.addEventListener('click', dropdownCloseActive);
+	}, 500)
+
+	let dropdown = document.querySelector(`.dropdown[data-setting='${target}']`);
 	dropdown.dataset.state = "open";
-	window.addEventListener('click', dropdownClose(target));
 }
 function dropdownClose(target) {
-	let dropdown = document.querySelector(`.dropdown[data-setting='${target}'`);
-	dropdown.dataset.state = "closed";
+	window.removeEventListener('click', dropdownCloseActive);
+
+	let dropdown = document.querySelector(`.dropdown[data-setting='${target}']`);
+	if (dropdown != null) {
+		dropdown.dataset.state = "closed";
+	}
+}
+
+// Close open target
+function dropdownCloseActive() {
+	let activeDropdown = document.querySelector('[data-state="open"]');
+	if (activeDropdown != null) {
+		activeDropdown.dataset.state = "closed";
+	}
 }
 
 // Update dropdown with exact value
@@ -1688,6 +1969,32 @@ function dropdownUpdate(target, value) {
 	}
 	if (target == 'backgroundtype-dropdown') {
 		activateBackground();
+	}
+	if (target == 'borderstyle-dropdown') {
+		activateBorder();
+	}
+
+	// Randomization cases
+	let randomization = false;
+	if (value == "randomize") {
+		randomization = true;
+	}
+	if (target == 'randomsources-dropdown') {
+		randomGroups['sources'] = randomization;
+	} else if (target == 'randomgrid-dropdown') {
+		randomGroups['grid'] = randomization;
+	} else if (target == 'randommotion-dropdown') {
+		randomGroups['motion'] = randomization;
+	} else if (target == 'randomtransformations-dropdown') {
+		randomGroups['transformations'] = randomization;
+	} else if (target == 'randomfill-dropdown') {
+		randomGroups['fill'] = randomization;
+	} else if (target == 'randomborder-dropdown') {
+		randomGroups['border'] = randomization;
+	} else if (target == 'randombackground-dropdown') {
+		randomGroups['background'] = randomization;
+	} else if (target == 'randomfilters-dropdown') {
+		randomGroups['filters'] = randomization;
 	}
 
 	if (groupSettingChange == false) {
@@ -1737,7 +2044,6 @@ let sourceOrder = {};
 // Add source
 let sourceIndex = 0;
 let totalSources = 0;
-let maxSources = 99;
 function addSource() {
 	let controlsSourcesContainer = document.querySelector(".controls-sources-container");
 	let controlsSources = document.querySelector(".controls-sources");
@@ -1792,13 +2098,65 @@ function addSource() {
 	dropdownPopulate(settingsKey);
 	sourceIndex++;
 
-	// "Add source" button
-	let sourcebtn = document.querySelector("#sourcebtn");
-	if (totalSources >= maxSources) {
-		sourcebtn.style.display = "none";
-	} else {
-		sourcebtn.style.display = "flex";
+	controlsSources.scrollTo(0, controlsSources.scrollHeight);
+
+	randomizeGridSources();
+}
+
+// Add new dropdown with specific file selected
+function addSourceSpecific(source) {
+	let controlsSourcesContainer = document.querySelector(".controls-sources-container");
+	let controlsSources = document.querySelector(".controls-sources");
+	controlsSourcesContainer.dataset.empty = 0;
+
+	let sourceKey = 'source' + sourceIndex;
+	let settingsKey = sourceKey+"-dropdown";
+	let randomDefault = sources[sources.indexOf(source)];
+	settings[settingsKey] = {
+		"input": "dropdown",
+		"value": randomDefault,
+		"default": randomDefault,
+		"options": sources,
 	}
+	sourceOrder[totalSources] = sourceKey;
+	totalSources++;
+
+	let temp = `
+		<div class="controls-setting" data-setting="${sourceKey}">
+			<h4 class="source-label">${totalSources}</h4>
+			<div class="dropdown" data-setting="${settingsKey}" data-state="closed">
+				<div class="dropdown-display" onclick="dropdownToggle('${settingsKey}')">
+					<h5></h5>
+					<svg viewBox="0 0 24 24"><path d="M12 21l-12-18h24z"/></svg>
+				</div>
+				<ul class="dropdown-menu">
+				</ul>
+			</div>
+			<div class="source-buttons">
+				<div class="button" onclick="moveSourceUp('${sourceKey}');">
+					<div class="button-display button-display-flipped">
+						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+					</div>
+					<div class="button-fill"></div>
+				</div>
+				<div class="button" onclick="moveSourceDown('${sourceKey}');">
+					<div class="button-display">
+						<svg viewBox="0 0 400 400"><polygon points="0 40.77 400 40.769 200 379.231 0 40.77"/></svg>
+					</div>
+					<div class="button-fill"></div>
+				</div>
+				<div class="button" onclick="removeSource('${sourceKey}');">
+					<div class="button-display">
+					<svg viewBox="0 0 400 400"><polygon points="376.777 93.934 306.066 23.223 200 129.289 93.934 23.223 23.224 93.934 129.29 200 23.223 306.066 93.934 376.777 200 270.711 306.066 376.777 376.776 306.066 270.71 200 376.777 93.934"/></svg>
+					</div>
+					<div class="button-fill"></div>
+				</div>
+			</div>
+		</div>
+	`
+	controlsSources.innerHTML += temp;
+	dropdownPopulate(settingsKey);
+	sourceIndex++;
 
 	controlsSources.scrollTo(0, controlsSources.scrollHeight);
 
@@ -1922,15 +2280,7 @@ function removeSource(source) {
 			display.innerText = gridSources[row][col];
 		}
 	}
-	refreshAllGridSources();	
-
-	// "Add source" button
-	let sourcebtn = document.querySelector("#sourcebtn");
-	if (totalSources >= maxSources) {
-		sourcebtn.style.display = "none";
-	} else {
-		sourcebtn.style.display = "flex";
-	}
+	refreshAllGridSources();
 }
 
 // Renumber sources
@@ -1963,76 +2313,42 @@ function randomizeSources() {
 	}
 }
 
-// Fill groups
-function activateFill() {
-	let fillGroupSolid = document.querySelectorAll('[data-fillgroup="solid"]');
-	let fillGroupGradient = document.querySelectorAll('[data-fillgroup="gradient"]');
-	let fillGroupAngle = document.querySelector('[data-fillgroup="angle"]');
-	if (settings['filltype-dropdown']['value'] == 'none') {
-		for (let i of fillGroupSolid) {
-			i.dataset.hide = 1;
-		}
-		for (let i of fillGroupGradient) {
-			i.dataset.hide = 1;
-		}
-		fillGroupAngle.dataset.hide = 1;
-	} else if (settings['filltype-dropdown']['value'] == 'color') {
-		for (let i of fillGroupSolid) {
-			i.dataset.hide = 0;
-		}
-		for (let i of fillGroupGradient) {
-			i.dataset.hide = 1;
-		}
-		fillGroupAngle.dataset.hide = 1;
-	} else if (settings['filltype-dropdown']['value'] == 'radial gradient') {
-		for (let i of fillGroupSolid) {
-			i.dataset.hide = 1;
-		}
-		for (let i of fillGroupGradient) {
-			i.dataset.hide = 0;
-		}
-		fillGroupAngle.dataset.hide = 1;
-	} else {
-		for (let i of fillGroupSolid) {
-			i.dataset.hide = 1;
-		}
-		for (let i of fillGroupGradient) {
-			i.dataset.hide = 0;
-		}
-		fillGroupAngle.dataset.hide = 0;
-	}
-	restartLoop();
+// —————————————————————————————————————————————————————————————————————————————
+// USER-UPLOADED SOURCES
+// —————————————————————————————————————————————————————————————————————————————
+
+// Make styled button open correct dialogue
+function openDialog() {
+	document.querySelector('#source-input').click();
 }
-function activateBackground() {
-	let backgroundGroupSolid = document.querySelectorAll('[data-backgroundgroup="solid"]');
-	let backgroundGroupGradient = document.querySelectorAll('[data-backgroundgroup="gradient"]');
-	let backgroundGroupAngle = document.querySelector('[data-backgroundgroup="angle"]');
-	if (settings['backgroundtype-dropdown']['value'] == 'color') {
-		for (let i of backgroundGroupSolid) {
-			i.dataset.hide = 0;
+
+// Upload file
+let uploadedImages = {};
+function handleFileSelect(event) {
+	if (window.FileList && window.File && window.FileReader) {
+
+		// Validate file type
+		let file = event.target.files[0];
+		let fileType = file.name.split('.').pop().toLowerCase();
+		if (fileType != 'jpg' && fileType != 'png' && fileType != 'gif' && fileType != 'svg') {
+			window.alert('That’s not a valid image file! Try a .jpg, .png, .gif, or .svg file.');
+			return;
 		}
-		for (let i of backgroundGroupGradient) {
-			i.dataset.hide = 1;
+		let userImage = URL.createObjectURL(file);
+		uploadedImages[file.name] = userImage;
+		sources.push(file.name);
+
+		// Add new option to all pre-existing dropdowns
+		for (let key of Object.keys(sourceOrder)) {
+			let dropdown = document.querySelector(`[data-setting="${sourceOrder[key]}-dropdown"]`);
+			if (dropdown != null) {
+				let dropdownMenu = dropdown.querySelector('.dropdown-menu');
+				dropdownMenu.innerHTML += `<li onclick="dropdownUpdate('${sourceOrder[key]}-dropdown', '${file.name}')">${file.name}</li>`;
+			}
 		}
-		backgroundGroupAngle.dataset.hide = 1;
-	} else if (settings['backgroundtype-dropdown']['value'] == 'radial gradient') {
-		for (let i of backgroundGroupSolid) {
-			i.dataset.hide = 1;
-		}
-		for (let i of backgroundGroupGradient) {
-			i.dataset.hide = 0;
-		}
-		backgroundGroupAngle.dataset.hide = 1;
-	} else {
-		for (let i of backgroundGroupSolid) {
-			i.dataset.hide = 1;
-		}
-		for (let i of backgroundGroupGradient) {
-			i.dataset.hide = 0;
-		}
-		backgroundGroupAngle.dataset.hide = 0;
+
+		addSourceSpecific(file.name);
 	}
-	restartLoop();
 }
 
 // —————————————————————————————————————————————————————————————————————————————
@@ -2163,6 +2479,11 @@ function setGridSource(cell, value) {
 		let sourceID = sourceOrder[value-1];
 		let img = settings[sourceID+'-dropdown']['value'];
 		gridCellSrc.style.backgroundImage = `url("assets/images/${img}")`;
+		if (Object.keys(uploadedImages).includes(img)) {
+			gridCellSrc.style.backgroundImage = `url("${uploadedImages[img]}")`;
+		} else {
+			gridCellSrc.style.backgroundImage = `url("assets/images/${img}")`;
+		}
 	} else {
 		gridCellSrc.style.backgroundImage = `unset`;
 	}
@@ -2178,7 +2499,11 @@ function refreshGridSource(cell) {
 	if (value != "_") {
 		let sourceID = sourceOrder[value-1];
 		let img = settings[sourceID+'-dropdown']['value'];
-		gridCellSrc.style.backgroundImage = `url("assets/images/${img}")`;
+		if (Object.keys(uploadedImages).includes(img)) {
+			gridCellSrc.style.backgroundImage = `url("${uploadedImages[img]}")`;
+		} else {
+			gridCellSrc.style.backgroundImage = `url("assets/images/${img}")`;
+		}
 	} else {
 		gridCellSrc.style.backgroundImage = `unset`;
 	}
@@ -2270,13 +2595,14 @@ function applySettings() {
 		if (loopState != false) {
 			if (settings['interval-toggle']['value'] == true) {
 				cell.style.transition = Math.random()*(settings['interval-slider']['value']) + "ms " + easing;
-				cellSrc.style.transition = Math.random()*(settings['interval-slider']['value']) + "ms " + easing;
+				cellSrc.style.transition = Math.random()*(settings['interval-slider']['value']) + "ms " + easing + ", background-image 0s";
 			} else {
 				cell.style.transition = settings['interval-slider']['value'] + "ms " + easing;
-				cellSrc.style.transition = settings['interval-slider']['value'] + "ms " + easing;
+				cellSrc.style.transition = settings['interval-slider']['value'] + "ms " + easing + ", background-image 0s";
 			}
 		}
 
+		// Source movement
 		cellSrc.style.backgroundPosition = `
 			${returnSetting('movementxposition')}
 			${returnSetting('movementyposition')}
@@ -2284,6 +2610,8 @@ function applySettings() {
 		cellSrc.style.backgroundSize = `
 			${returnSetting('movementscale')}
 		`
+
+		// Border
 		cell.style.border = `
 			${returnSetting('borderwidth')}
 			${settings["borderstyle-dropdown"]["value"]}
@@ -2297,37 +2625,20 @@ function applySettings() {
 		cell.style.borderRadius = `
 			${returnSetting('borderradius')}
 		`
-		// cell.style.filter = `
-		// 	blur(${returnSetting('filterblur')})
-		// 	brightness(${returnSetting('filterbrightness')})
-		// 	contrast(${returnSetting('filtercontrast')})
-		// 	saturate(${returnSetting('filtersaturate')})
-		// 	hue-rotate(${returnSetting('filterhuerotate')})
-		// 	invert(${returnSetting('filterinvert')})
-		// 	sepia(${returnSetting('filtersepia')})
-		// 	drop-shadow(
-		// 		${returnSetting('shadowxoffset')}
-		// 		${returnSetting('shadowyoffset')}
-		// 		${returnSetting('shadowblur')}
-		// 		hsla(
-		// 			${returnSetting('shadowhue')},
-		// 			${returnSetting('shadowsaturation')},
-		// 			${returnSetting('shadowlightness')},
-		// 			${returnSetting('shadowalpha')}
-		// 		)
-		// 	)
-		// `
+		
+		// Transformations
 		cell.style.transform = `
 			rotateX(${returnSetting('rotatex')})
 			rotateY(${returnSetting('rotatey')})
 			rotateZ(${returnSetting('rotatez')})
 			translateX(${returnSetting('translatex')})
 			translateY(${returnSetting('translatey')})
-			scaleX(${returnSetting('scalex')})
-			scaleY(${returnSetting('scaley')})
 		`
+		cell.style.width = `${returnSetting('scalex')}`;
+		cell.style.height = `${returnSetting('scaley')}`;
 		
 		// Fill type
+		cellSrc.style.mixBlendMode = settings['blendmode-dropdown']['value'];
 		if (settings["filltype-dropdown"]["value"] == 'none') {
 			cell.style.backgroundColor = `unset`;
 			cell.style.background = `unset`;
@@ -2472,6 +2783,44 @@ function applySettings() {
 				)
 			`
 		}
+
+		// Filters
+		let filtersTemp = "";
+		if (activeFilters['blur'] == true) {
+			filtersTemp += `blur(${returnSetting('filterblur')}) `;
+		}
+		if (activeFilters['brightness'] == true) {
+			filtersTemp += `brightness(${returnSetting('filterbrightness')}) `;
+		}
+		if (activeFilters['contrast'] == true) {
+			filtersTemp += `contrast(${returnSetting('filtercontrast')}) `;
+		}
+		if (activeFilters['saturation'] == true) {
+			filtersTemp += `saturate(${returnSetting('filtersaturate')}) `;
+		}
+		if (activeFilters['hue'] == true) {
+			filtersTemp += `hue-rotate(${returnSetting('filterhuerotate')}) `;
+		}
+		if (activeFilters['invert'] == true) {
+			filtersTemp += `invert(${returnSetting('filterinvert')}) `;
+		}
+		if (activeFilters['sepia'] == true) {
+			filtersTemp += `sepia(${returnSetting('filtersepia')}) `;
+		}
+		if (activeFilters['shadow'] == true) {
+			filtersTemp += `drop-shadow(
+				${returnSetting('shadowxoffset')}
+				${returnSetting('shadowyoffset')}
+				${returnSetting('shadowblur')}
+				hsla(
+					${returnSetting('shadowhue')},
+					${returnSetting('shadowsaturation')},
+					${returnSetting('shadowlightness')},
+					${returnSetting('shadowalpha')}
+				)
+			)`;
+		}
+		cell.style.filter = filtersTemp;
 	}
 
 	// UI styling
@@ -2484,9 +2833,24 @@ function applySettings() {
 // Return setting value based on toggle state
 function returnSetting(setting) {
 	if (`${setting}-toggle` in settings) {
-		return settings[`${setting}-toggle`]["value"] ? Math.random()*settings[`${setting}-slider`]["value"]+settings[`${setting}-slider`]["unit"] : settings[`${setting}-slider`]["value"]+settings[`${setting}-slider`]["unit"]
+		if (settings[`${setting}-toggle`]["value"] == true) {
+
+			// Random value in both directions for certain properties
+			let range, randomValue;
+			if (settings[`${setting}-slider`].hasOwnProperty('direction')) {
+				range = settings[`${setting}-slider`]["value"];
+				randomValue = Math.random()*range;
+			} else {
+				range = settings[`${setting}-slider`]["value"] - settings[`${setting}-slider`]["min"];
+				randomValue = Math.random()*range + settings[`${setting}-slider`]["min"];
+			}
+
+			return randomValue + settings[`${setting}-slider`]["unit"]
+		} else {
+			return settings[`${setting}-slider`]["value"] + settings[`${setting}-slider`]["unit"]
+		}
 	} else {
-		return settings[`${setting}-slider`]["value"]+settings[`${setting}-slider`]["unit"]
+		return settings[`${setting}-slider`]["value"] + settings[`${setting}-slider`]["unit"]
 	}
 }
 
@@ -2526,7 +2890,9 @@ function endLoop() {
 	let grid = document.querySelector(".grid");
 	let cells = grid.querySelectorAll(".grid-cell");
 	for (let cell of cells) {
+		let cellSrc = cell.querySelector(".grid-cell-source");
 		cell.style.transition = 'unset';
+		cellSrc.style.transition = 'unset';
 	}
 }
 function loop() {
@@ -2542,8 +2908,105 @@ function loop() {
 // UI
 // —————————————————————————————————————————————————————————————————————————————
 
+
+// Activate settings groups
+function activateFill() {
+	let fillGroupSolid = document.querySelectorAll('[data-fillgroup="solid"]');
+	let fillGroupGradient = document.querySelectorAll('[data-fillgroup="gradient"]');
+	let fillGroupAngle = document.querySelector('[data-fillgroup="angle"]');
+	if (settings['filltype-dropdown']['value'] == 'none') {
+		for (let i of fillGroupSolid) {
+			i.dataset.hide = 1;
+		}
+		for (let i of fillGroupGradient) {
+			i.dataset.hide = 1;
+		}
+		fillGroupAngle.dataset.hide = 1;
+	} else if (settings['filltype-dropdown']['value'] == 'color') {
+		for (let i of fillGroupSolid) {
+			i.dataset.hide = 0;
+		}
+		for (let i of fillGroupGradient) {
+			i.dataset.hide = 1;
+		}
+		fillGroupAngle.dataset.hide = 1;
+	} else if (settings['filltype-dropdown']['value'] == 'radial gradient') {
+		for (let i of fillGroupSolid) {
+			i.dataset.hide = 1;
+		}
+		for (let i of fillGroupGradient) {
+			i.dataset.hide = 0;
+		}
+		fillGroupAngle.dataset.hide = 1;
+	} else {
+		for (let i of fillGroupSolid) {
+			i.dataset.hide = 1;
+		}
+		for (let i of fillGroupGradient) {
+			i.dataset.hide = 0;
+		}
+		fillGroupAngle.dataset.hide = 0;
+	}
+	restartLoop();
+}
+function activateBorder() {
+	let borderSettings = document.querySelectorAll('.setting-border');
+	if (settings['borderstyle-dropdown']['value'] == 'none') {
+		for (let i of borderSettings) {
+			i.dataset.hide = 1;
+		}
+	} else {
+		for (let i of borderSettings) {
+			i.dataset.hide = 0;
+		}
+	}
+}
+function activateBackground() {
+	let backgroundGroupSolid = document.querySelectorAll('[data-backgroundgroup="solid"]');
+	let backgroundGroupGradient = document.querySelectorAll('[data-backgroundgroup="gradient"]');
+	let backgroundGroupAngle = document.querySelector('[data-backgroundgroup="angle"]');
+	if (settings['backgroundtype-dropdown']['value'] == 'color') {
+		for (let i of backgroundGroupSolid) {
+			i.dataset.hide = 0;
+		}
+		for (let i of backgroundGroupGradient) {
+			i.dataset.hide = 1;
+		}
+		backgroundGroupAngle.dataset.hide = 1;
+	} else if (settings['backgroundtype-dropdown']['value'] == 'radial gradient') {
+		for (let i of backgroundGroupSolid) {
+			i.dataset.hide = 1;
+		}
+		for (let i of backgroundGroupGradient) {
+			i.dataset.hide = 0;
+		}
+		backgroundGroupAngle.dataset.hide = 1;
+	} else {
+		for (let i of backgroundGroupSolid) {
+			i.dataset.hide = 1;
+		}
+		for (let i of backgroundGroupGradient) {
+			i.dataset.hide = 0;
+		}
+		backgroundGroupAngle.dataset.hide = 0;
+	}
+	restartLoop();
+}
+function activateShadow() {
+	let shadowSettings = document.querySelectorAll('.setting-shadow');
+	if (settings['dropshadow-toggle']['value'] == false) {
+		for (let i of shadowSettings) {
+			i.dataset.hide = 1;
+		}
+	} else {
+		for (let i of shadowSettings) {
+			i.dataset.hide = 0;
+		}
+	}
+}
+
 // Open or close settings group
-let groups = ['manual','sources','grid','movement','fill','border','filters','transformations','motion','background','ui'];
+let groups = ['manual','sources','grid','motion','fill','border','filters','transformations','background','random','ui'];
 function toggleSettings(group) {
 	let controlsSection = document.querySelector(`[data-group="${group}"]`);
 	if (parseInt(controlsSection.dataset.active) == 1) {
@@ -2663,38 +3126,48 @@ function toggleMenu(target) {
 	}
 }
 
-// remove background from grid sources
+// —————————————————————————————————————————————————————————————————————————————
+// FULLSCREEN
+// —————————————————————————————————————————————————————————————————————————————
 
-// should default with some sources? maybe load in a preset?
+let fullscreenTimeout;
+function fullscreenIn() {
+	let content = document.querySelector('.content');
+	content.dataset.fullscreen = 1;
+	content.dataset.menu = 0;
+	let nav = document.querySelector('.nav-container');
+	nav.dataset.hide = 1;
 
-// cell assignment, quick button to assign everything to one source?
+	// Show message
+	clearInterval(fullscreenTimeout);
+	let fullscreen = document.querySelector('.fullscreen');
+	let fullscreenMessage = document.querySelector('.fullscreen-message');
+	fullscreen.dataset.active = 1;
+	fullscreenMessage.dataset.active = 1;
+	fullscreenTimeout = setTimeout(() => {
+		fullscreenMessage.dataset.active = 0;
+		fullscreen.addEventListener('click', fullscreenOut);
+	}, 3000)
 
-// make it so cells dont have to have source automatically applied
+	// Close all menus
+	let menus = document.querySelectorAll('.menu');
+	for (let menu of menus) {
+		menu.dataset.active = 0;
+	}
+}
 
+function fullscreenOut() {
+	let content = document.querySelector('.content');
+	content.dataset.fullscreen = 0;
+	let nav = document.querySelector('.nav-container');
+	nav.dataset.hide = 0;
+	let fullscreen = document.querySelector('.fullscreen');
+	fullscreen.dataset.active = 0;
+}
 
-// fullscreen toggle
-
-
-// add way to disable groups?
-
-
-
-
-// add way to regenerate
-
-// toggle updates dont update fill
-
-
-// on/off options for certain settings like filters
-// dropdowns or full toggles to turn off other settings
-
-
-// filters are currently deactivated
-
-// make sliders work on mobile
-
-// fix that background moves even when paused when settings update
-
+// —————————————————————————————————————————————————————————————————————————————
+// INITIALIZE
+// —————————————————————————————————————————————————————————————————————————————
 
 randomizeSources();
 applySettings();
