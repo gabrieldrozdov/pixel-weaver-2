@@ -1,3 +1,8 @@
+// Optimize setting multiple options at once
+let groupSettingChange = true;
+let allSettingChange = false;
+var loopCount = 0; // for debugging
+
 // Settings object for tracking all parameters and values
 let settings = {
 
@@ -1379,8 +1384,6 @@ let settingsUI = [
 	'uiscale-slider',
 ]
 
-let groupSettingChange = false;
-
 // Reset functions
 function resetSetting(setting) {
 	if (settings[setting]["input"] == 'slider') {
@@ -1399,7 +1402,9 @@ function resetGrid() {
 	generateGrid();
 	generateGridSources();
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetFill() {
 	groupSettingChange = true;
@@ -1407,7 +1412,9 @@ function resetFill() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetBorder() {
 	groupSettingChange = true;
@@ -1415,7 +1422,9 @@ function resetBorder() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetFilters() {
 	groupSettingChange = true;
@@ -1423,7 +1432,9 @@ function resetFilters() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetFiltersToggles() {
 	groupSettingChange = true;
@@ -1431,7 +1442,9 @@ function resetFiltersToggles() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetTransformations() {
 	groupSettingChange = true;
@@ -1439,7 +1452,9 @@ function resetTransformations() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetMotion() {
 	groupSettingChange = true;
@@ -1447,7 +1462,9 @@ function resetMotion() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetBackground() {
 	groupSettingChange = true;
@@ -1455,7 +1472,9 @@ function resetBackground() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetUI() {
 	groupSettingChange = true;
@@ -1463,9 +1482,12 @@ function resetUI() {
 		resetSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function resetAll() {
+	allSettingChange = true;
 	// clearSources();
 	resetGrid();
 	resetFill();
@@ -1475,6 +1497,8 @@ function resetAll() {
 	resetTransformations();
 	resetMotion();
 	resetBackground();
+	allSettingChange = false;
+	applySettings();
 }
 
 // Reset setting if label clicked
@@ -1513,7 +1537,9 @@ function randomizeGrid() {
 	generateGrid();
 	generateGridSources();
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function randomizeFill() {
 	groupSettingChange = true;
@@ -1521,7 +1547,9 @@ function randomizeFill() {
 		randomizeSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function randomizeBorder() {
 	groupSettingChange = true;
@@ -1529,7 +1557,9 @@ function randomizeBorder() {
 		randomizeSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function randomizeFilters() {
 	groupSettingChange = true;
@@ -1537,7 +1567,9 @@ function randomizeFilters() {
 		randomizeSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function randomizeTransformations() {
 	groupSettingChange = true;
@@ -1545,7 +1577,9 @@ function randomizeTransformations() {
 		randomizeSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function randomizeMotion() {
 	groupSettingChange = true;
@@ -1553,7 +1587,9 @@ function randomizeMotion() {
 		randomizeSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function randomizeBackground() {
 	groupSettingChange = true;
@@ -1561,7 +1597,9 @@ function randomizeBackground() {
 		randomizeSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 function randomizeUI() {
 	groupSettingChange = true;
@@ -1569,7 +1607,9 @@ function randomizeUI() {
 		randomizeSetting(setting);
 	}
 	groupSettingChange = false;
-	applySettings();
+	if (allSettingChange == false) {
+		applySettings();
+	}
 }
 let randomGroups = {
 	'sources': true,
@@ -1582,6 +1622,7 @@ let randomGroups = {
 	"filters": false
 };
 function randomizeAll() {
+	allSettingChange = true;
 	if (randomGroups['sources'] == true) {
 		randomizeSources();
 	}
@@ -1606,6 +1647,8 @@ function randomizeAll() {
 	if (randomGroups['background'] == true) {
 		randomizeBackground();
 	}
+	allSettingChange = false;
+	applySettings();
 }
 
 // —————————————————————————————————————————————————————————————————————————————
@@ -1646,6 +1689,7 @@ function roundValue(target) {
 
 // User input for clicking and dragging slider
 function sliderActivate(e, target) {
+	e.preventDefault();
 	let slider = document.querySelector(`.slider[data-setting='${target}'`);
 	window.addEventListener("mousemove", sliderDrag);
 	window.addEventListener("mouseup", sliderDeactivate);
@@ -1717,7 +1761,7 @@ function sliderUpdate(target, value) {
 		restartLoop();
 	}
 
-	if (groupSettingChange == false) {
+	if (groupSettingChange == false && allSettingChange == false) {
 		applySettings();
 	}
 }
@@ -1765,7 +1809,7 @@ function sliderEdit(target) {
 		window.removeEventListener("mousedown", sliderEditClick);
 		window.removeEventListener("keydown", sliderEditKeypress);
 
-		if (groupSettingChange == false) {
+		if (groupSettingChange == false && allSettingChange == false) {
 			applySettings();
 		}
 	}
@@ -1811,7 +1855,7 @@ function toggleToggle(target) {
 		toggleDisplay.innerText = settings[target]["offtext"];
 	}
 
-	if (groupSettingChange == false && target != 'advanced-toggle') {
+	if (groupSettingChange == false && allSettingChange == false && target != 'advanced-toggle') {
 		initialize = true;
 		applySettings();
 	}
@@ -1857,7 +1901,7 @@ function toggleUpdate(target, value) {
 	settings[target]["value"] = value;
 	toggleRefresh(target);
 
-	if (groupSettingChange == false && target != 'advanced-toggle') {
+	if (groupSettingChange == false && allSettingChange == false && target != 'advanced-toggle') {
 		restartLoop();
 	}
 }
@@ -1997,7 +2041,7 @@ function dropdownUpdate(target, value) {
 		randomGroups['filters'] = randomization;
 	}
 
-	if (groupSettingChange == false) {
+	if (groupSettingChange == false && allSettingChange == false) {
 		applySettings();
 	}
 }
@@ -2345,15 +2389,19 @@ function clearSources() {
 	controlsSources.innerHTML = "";
 	sourceOrder = {};
 	totalSources = 0;
+	groupSettingChange = true;
 	randomizeGridSources();
+	groupSettingChange = false;
 }
 
 // Generate random sources
 function randomizeSources() {
 	clearSources();
+	groupSettingChange = true;
 	for (let i=0; i<Math.floor(Math.random()*5+1); i++) {
 		addSource();
 	}
+	groupSettingChange = false;
 }
 
 // —————————————————————————————————————————————————————————————————————————————
@@ -2530,7 +2578,9 @@ function setGridSource(cell, value) {
 	} else {
 		gridCellSrc.style.backgroundImage = `unset`;
 	}
-	applySettings();
+	if (groupSettingChange == false && allSettingChange == false) {
+		applySettings();
+	}
 }
 
 // Refresh grid cell to match correct source
@@ -2579,7 +2629,9 @@ function generateGrid() {
 		}
 	}
 	grid.innerHTML = temp;
-	applySettings();
+	if (groupSettingChange == false && allSettingChange == false) {
+		applySettings();
+	}
 	setTimeout(() => {
 		restartLoop();
 	}, 50)
@@ -2595,6 +2647,8 @@ generateGridSources();
 var loopState = true;
 var initialize = true;
 function applySettings() {
+	console.log(loopCount);
+	loopCount++;
 	if (loopState == false) {
 		initialize = true;
 	}
@@ -2939,7 +2993,9 @@ function endLoop() {
 	}
 }
 function loop() {
-	applySettings();
+	if (groupSettingChange == false && allSettingChange == false) {
+		applySettings();
+	}
 	if (loopState == true) {
 		loopDelay = setTimeout(() => {
 			loop();
@@ -3217,4 +3273,5 @@ function fullscreenOut() {
 // —————————————————————————————————————————————————————————————————————————————
 
 addSource();
+groupSettingChange = false;
 applySettings();
